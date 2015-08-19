@@ -16,6 +16,9 @@
 
 package com.example.android.bluetoothchat;
 
+import java.lang.String;
+import java.util.ArrayList;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -42,8 +45,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SeekBar;
+import android.speech.RecognizerIntent;
+import android.content.ActivityNotFoundException;
 
 import com.example.android.common.logger.Log;
+
 
 /**
  * This fragment controls Bluetooth to communicate with other devices.
@@ -56,6 +62,8 @@ public class BluetoothChatFragment extends Fragment {
     private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
     private static final int REQUEST_CONNECT_DEVICE_INSECURE = 2;
     private static final int REQUEST_ENABLE_BT = 3;
+    private static final int REQUEST_CODE = 4;
+    //private static final int RESULT_OK = 4;
 
     // Layout Views
     private ListView mConversationView;
@@ -88,6 +96,11 @@ public class BluetoothChatFragment extends Fragment {
      * Member object for the chat services
      */
     private BluetoothChatService mChatService = null;
+
+    /**
+     * Member object for the chat services
+     */
+    private AI_CHIP mAIChat = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -156,6 +169,49 @@ public class BluetoothChatFragment extends Fragment {
         mSendButton = (Button) view.findViewById(R.id.button_send);
         //scratch
         mSendSeekBar = (SeekBar) view.findViewById(R.id.seekBar);
+        mSendSeekBar.setMax(100*2);
+        mSendSeekBar.setProgress(100);
+        mSendSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                    // トグルがドラッグされると呼ばれる
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                        ///*
+                        String message_L;
+                        String message_H;
+
+                        int motor;
+
+                        motor = progress - 100;
+                        //motor = (motor * 367) + 67;
+
+                        //motor = (int) (motor * 1.2);
+                        message_L = Long.toString((long) (motor * 1.24));
+                        message_H = Long.toString((long) (motor * 1.2));
+                        //Log.d(TAG,message);
+                        byte[] mSend = {99,109,100,0,0,0,0,0,0,0};
+                        byte power_L = Byte.valueOf(message_L).byteValue();
+                        byte power_H = Byte.valueOf(message_H).byteValue();
+                        //byte power_L = (byte) (motor & 0x000000ff);
+                        //byte power_H = (byte) ((byte) (motor & 0x0000ff00) >>> 3);
+
+                        mSend[4] = power_L;
+                        mSend[5] = power_H;
+                        mChatService.write(mSend);
+                        //*/
+
+                    }
+                    // トグルがタッチされた時に呼ばれる
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+                        /*
+                        byte[] test = {0};
+                        mAIChat.write(test);
+                        */
+                    }
+                    // トグルがリリースされた時に呼ばれる
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+                    }
+
+                });
     }
 
     /**
@@ -181,7 +237,7 @@ public class BluetoothChatFragment extends Fragment {
                     TextView textView = (TextView) view.findViewById(R.id.edit_text_out);
                     String message = textView.getText().toString();
                     //scratch
-                    Log.d(TAG,"Button test!!!");
+                    Log.d(TAG, "Button test!!!");
                     //int prg = mSendSeekBar.getProgress();
                     //String seek = String.valueOf(prg);
                     //Log.d(TAG,seek);
@@ -211,6 +267,7 @@ public class BluetoothChatFragment extends Fragment {
         }
     }
 
+
     /**
      * Sends a message.
      *
@@ -218,6 +275,7 @@ public class BluetoothChatFragment extends Fragment {
      */
     private void sendMessage(String message) {
         // Check that we're actually connected before trying anything
+
         if (mChatService.getState() != BluetoothChatService.STATE_CONNECTED) {
             Toast.makeText(getActivity(), R.string.not_connected, Toast.LENGTH_SHORT).show();
             return;
@@ -271,6 +329,14 @@ public class BluetoothChatFragment extends Fragment {
             // Reset out string buffer to zero and clear the edit text field
             mOutStringBuffer.setLength(0);
             mOutEditText.setText(mOutStringBuffer);
+        }else{
+            // インテント作成
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); // ACTION_WEB_SEARCH
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "VoiceRecognitionTest"); // お好きな文字に変更できます
+            // インテント発行
+            Log.d(TAG, "intent_result");
+            startActivityForResult(intent, REQUEST_CODE);
         }
     }
 
@@ -353,6 +419,7 @@ public class BluetoothChatFragment extends Fragment {
                     mConversationArrayAdapter.add("Me:  " + writeMessage);
                     break;
                 case Constants.MESSAGE_READ:
+                    //Get senser data here.
                     byte[] readBuf = (byte[]) msg.obj;
                     // construct a string from the valid bytes in the buffer
                     String readMessage = new String(readBuf, 0, msg.arg1);
@@ -378,6 +445,65 @@ public class BluetoothChatFragment extends Fragment {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
+            case REQUEST_CODE:
+                if (resultCode == Activity.RESULT_OK) {
+                    String resultsString = "";
+                    Log.d(TAG, "request_code!!!");
+                    // 結果文字列リスト
+                    ArrayList<String> results = data.getStringArrayListExtra(
+                            RecognizerIntent.EXTRA_RESULTS);
+
+                    for (int i = 0; i < results.size(); i++) {
+                        // ここでは、文字列が複数あった場合に結合しています
+                        resultsString += results.get(i);
+                    }
+
+                    // トーストを使って結果を表示
+                    Toast.makeText(getActivity(), results.get(0), Toast.LENGTH_LONG).show();
+                    if(results.get(0).equals("動け")) {
+                        byte[] mSend = {99, 109, 100, 0, 100, 100, 0, 0, 0, 0};
+                        mChatService.write(mSend);
+                    }
+                    if(results.get(0).equals("池")) {
+                        byte[] mSend = {99, 109, 100, 0, 100, 100, 0, 0, 0, 0};
+                        mChatService.write(mSend);
+                    }
+                    if(results.get(0).equals("行け")) {
+                        byte[] mSend = {99, 109, 100, 0, 100, 100, 0, 0, 0, 0};
+                        mChatService.write(mSend);
+                    }
+                    if(results.get(0).equals("go")) {
+                        byte[] mSend = {99, 109, 100, 0, 100, 100, 0, 0, 0, 0};
+                        mChatService.write(mSend);
+                    }
+                    if(results.get(0).equals("ゆっくり")) {
+                        byte[] mSend = {99, 109, 100, 0, 50, 50, 0, 0, 0, 0};
+                        mChatService.write(mSend);
+                    }
+                    if(results.get(0).equals("GO")) {
+                        byte[] mSend = {99, 109, 100, 0, 100, 100, 0, 0, 0, 0};
+                        mChatService.write(mSend);
+                    }
+                    if(results.get(0).equals("ストップ")) {
+                        byte[] mSend = {99, 109, 100, 0, 0, 0, 0, 0, 0, 0};
+                        mChatService.write(mSend);
+                    }
+                    if(results.get(0).equals("stop")) {
+                        byte[] mSend = {99, 109, 100, 0, 0, 0, 0, 0, 0, 0};
+                        mChatService.write(mSend);
+                    }
+                    if(results.get(0).equals("止まれ")) {
+                        byte[] mSend = {99, 109, 100, 0, 0, 0, 0, 0, 0, 0};
+                        mChatService.write(mSend);
+                    }
+                    if(results.get(0).equals("誉")) {
+                        byte[] mSend = {99, 109, 100, 0, 0, 0, 0, 0, 0, 0};
+                        mChatService.write(mSend);
+                    }
+
+                }
+                break;
+
             case REQUEST_CONNECT_DEVICE_SECURE:
                 // When DeviceListActivity returns with a device to connect
                 if (resultCode == Activity.RESULT_OK) {

@@ -20,12 +20,6 @@
       android:layout_height="match_parent"
       android:id="@+id/sample_main_layout">
 
-    <SeekBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="100"
-        android:id="@+id/seekBar" />
-
     <ViewAnimator
           android:id="@+id/sample_output"
           android:layout_width="match_parent"
