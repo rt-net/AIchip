@@ -283,6 +283,8 @@ public class BluetoothChatService {
         BluetoothChatService.this.start();
     }
 
+
+
     /**
      * This thread runs while listening for incoming connections. It behaves
      * like a server-side client. It runs until a connection is accepted
@@ -483,7 +485,7 @@ public class BluetoothChatService {
                     //resultString = new String(buffer, "US-ASCII");
                     String s = String.valueOf(bytes);
                     //Log.d(TAG,resultString);
-                    Log.d(TAG,s);
+                    //Log.d(TAG,s);
 
                     // Send the obtained bytes to the UI Activity
                     mHandler.obtainMessage(Constants.MESSAGE_READ, bytes, -1, buffer)

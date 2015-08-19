@@ -95,7 +95,7 @@ public class BluetoothChatFragment extends Fragment {
     /**
      * Member object for the chat services
      */
-    private BluetoothChatService mChatService = null;
+    //private BluetoothChatService mChatService = null;
 
     /**
      * Member object for the chat services
@@ -127,7 +127,7 @@ public class BluetoothChatFragment extends Fragment {
             Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
             // Otherwise, setup the chat session
-        } else if (mChatService == null) {
+        } else if (mAIChat == null) {
             setupChat();
         }
     }
@@ -135,8 +135,8 @@ public class BluetoothChatFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mChatService != null) {
-            mChatService.stop();
+        if (mAIChat != null) {
+            mAIChat.stop();
         }
     }
 
@@ -147,11 +147,11 @@ public class BluetoothChatFragment extends Fragment {
         // Performing this check in onResume() covers the case in which BT was
         // not enabled during onStart(), so we were paused to enable it...
         // onResume() will be called when ACTION_REQUEST_ENABLE activity returns.
-        if (mChatService != null) {
+        if (mAIChat != null) {
             // Only if the state is STATE_NONE, do we know that we haven't started already
-            if (mChatService.getState() == BluetoothChatService.STATE_NONE) {
+            if (mAIChat.getState() == BluetoothChatService.STATE_NONE) {
                 // Start the Bluetooth chat services
-                mChatService.start();
+                mAIChat.start();
             }
         }
     }
@@ -175,37 +175,11 @@ public class BluetoothChatFragment extends Fragment {
                     // トグルがドラッグされると呼ばれる
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        ///*
-                        String message_L;
-                        String message_H;
-
-                        int motor;
-
-                        motor = progress - 100;
-                        //motor = (motor * 367) + 67;
-
-                        //motor = (int) (motor * 1.2);
-                        message_L = Long.toString((long) (motor * 1.24));
-                        message_H = Long.toString((long) (motor * 1.2));
-                        //Log.d(TAG,message);
-                        byte[] mSend = {99,109,100,0,0,0,0,0,0,0};
-                        byte power_L = Byte.valueOf(message_L).byteValue();
-                        byte power_H = Byte.valueOf(message_H).byteValue();
-                        //byte power_L = (byte) (motor & 0x000000ff);
-                        //byte power_H = (byte) ((byte) (motor & 0x0000ff00) >>> 3);
-
-                        mSend[4] = power_L;
-                        mSend[5] = power_H;
-                        mChatService.write(mSend);
-                        //*/
-
+                        progress = progress -100;
+                        mAIChat.motor_run(progress);
                     }
                     // トグルがタッチされた時に呼ばれる
                     public void onStartTrackingTouch(SeekBar seekBar) {
-                        /*
-                        byte[] test = {0};
-                        mAIChat.write(test);
-                        */
                     }
                     // トグルがリリースされた時に呼ばれる
                     public void onStopTrackingTouch(SeekBar seekBar) {
@@ -242,14 +216,14 @@ public class BluetoothChatFragment extends Fragment {
                     //String seek = String.valueOf(prg);
                     //Log.d(TAG,seek);
 
-
                     sendMessage(message);
                 }
             }
         });
 
         // Initialize the BluetoothChatService to perform bluetooth connections
-        mChatService = new BluetoothChatService(getActivity(), mHandler);
+        //mAIChat = new BluetoothChatService(getActivity(), mHandler);
+        mAIChat = new AI_CHIP(getActivity(), mHandler);
 
         // Initialize the buffer for outgoing messages
         mOutStringBuffer = new StringBuffer("");
@@ -276,7 +250,7 @@ public class BluetoothChatFragment extends Fragment {
     private void sendMessage(String message) {
         // Check that we're actually connected before trying anything
 
-        if (mChatService.getState() != BluetoothChatService.STATE_CONNECTED) {
+        if (mAIChat.getState() != BluetoothChatService.STATE_CONNECTED) {
             Toast.makeText(getActivity(), R.string.not_connected, Toast.LENGTH_SHORT).show();
             return;
         }
@@ -285,7 +259,7 @@ public class BluetoothChatFragment extends Fragment {
         if (message.length() > 0) {
             // Get the message bytes and tell the BluetoothChatService to write
             byte[] send = message.getBytes();
-            //mChatService.write(send);
+            //mAIChat.write(send);
 
             //scratch
             String get = new String(send);
@@ -293,38 +267,26 @@ public class BluetoothChatFragment extends Fragment {
 
             byte[] mSend = {99,109,100,0,0,0,0,0,0,0};
 
-            if(get.equals("on")){
-                //byte[] mSend = {99,109,100,1,1,0,0,0,0,0};
-                mSend[3] = 1;
-                mSend[4] = 1;
-                Log.d(TAG,"Set mSend -> "+mSend);
-                mChatService.write(mSend);
+            if(get.equals("gon")){
+                mAIChat.led_g_switch(Boolean.TRUE);
             }
-            if(get.equals("off")){
-                //byte[] mSend = {99,109,100,1,0,0,0,0,0,0};
-                mSend[3] = 1;
-                mSend[4] = 0;
-                Log.d(TAG,"Set mSend -> "+mSend);
-                mChatService.write(mSend);
+            if(get.equals("goff")){
+                mAIChat.led_g_switch(Boolean.FALSE);
             }
-            if(get.equals("100")){
-                //byte[] mSend = {99,109,100,1,0,0,0,0,0,0};
-                mSend[3] = 0;
-                mSend[4] = 100;
-                mSend[5] = 100;
-                Log.d(TAG,"Set mSend -> "+mSend);
-                mChatService.write(mSend);
+            if(get.equals("ron")){
+                mAIChat.led_r_switch(Boolean.TRUE);
             }
-            if(get.equals("0")){
-                //byte[] mSend = {99,109,100,1,0,0,0,0,0,0};
-                mSend[3] = 0;
-                mSend[4] = 0;
-                mSend[5] = 0;
-                Log.d(TAG,"Set mSend -> "+mSend);
-                mChatService.write(mSend);
+            if(get.equals("roff")){
+                mAIChat.led_r_switch(Boolean.FALSE);
+            }
+            if(get.equals("gf")){
+                mAIChat.led_g_flash((short) 100, (short) 100);
+            }
+            if(get.equals("rf")){
+                mAIChat.led_r_flash((short) 100,(short)100);
             }
             //mSend = {0,0,0,0,0,0,0,0,0,0};
-            //mChatService.write(mSend);
+            //mAIChat.write(mSend);
 
             // Reset out string buffer to zero and clear the edit text field
             mOutStringBuffer.setLength(0);
@@ -461,46 +423,35 @@ public class BluetoothChatFragment extends Fragment {
                     // トーストを使って結果を表示
                     Toast.makeText(getActivity(), results.get(0), Toast.LENGTH_LONG).show();
                     if(results.get(0).equals("動け")) {
-                        byte[] mSend = {99, 109, 100, 0, 100, 100, 0, 0, 0, 0};
-                        mChatService.write(mSend);
+                        mAIChat.motor_run(100);
                     }
                     if(results.get(0).equals("池")) {
-                        byte[] mSend = {99, 109, 100, 0, 100, 100, 0, 0, 0, 0};
-                        mChatService.write(mSend);
+                        mAIChat.motor_run(100);
                     }
                     if(results.get(0).equals("行け")) {
-                        byte[] mSend = {99, 109, 100, 0, 100, 100, 0, 0, 0, 0};
-                        mChatService.write(mSend);
+                        mAIChat.motor_run(100);
                     }
                     if(results.get(0).equals("go")) {
-                        byte[] mSend = {99, 109, 100, 0, 100, 100, 0, 0, 0, 0};
-                        mChatService.write(mSend);
+                        mAIChat.motor_run(100);
                     }
                     if(results.get(0).equals("ゆっくり")) {
-                        byte[] mSend = {99, 109, 100, 0, 50, 50, 0, 0, 0, 0};
-                        mChatService.write(mSend);
+                        mAIChat.motor_run(50);
                     }
                     if(results.get(0).equals("GO")) {
-                        byte[] mSend = {99, 109, 100, 0, 100, 100, 0, 0, 0, 0};
-                        mChatService.write(mSend);
+                        mAIChat.motor_run(100);
                     }
                     if(results.get(0).equals("ストップ")) {
-                        byte[] mSend = {99, 109, 100, 0, 0, 0, 0, 0, 0, 0};
-                        mChatService.write(mSend);
+                        mAIChat.motor_run(0);
                     }
                     if(results.get(0).equals("stop")) {
-                        byte[] mSend = {99, 109, 100, 0, 0, 0, 0, 0, 0, 0};
-                        mChatService.write(mSend);
+                        mAIChat.motor_run(0);
                     }
                     if(results.get(0).equals("止まれ")) {
-                        byte[] mSend = {99, 109, 100, 0, 0, 0, 0, 0, 0, 0};
-                        mChatService.write(mSend);
+                        mAIChat.motor_run(0);
                     }
                     if(results.get(0).equals("誉")) {
-                        byte[] mSend = {99, 109, 100, 0, 0, 0, 0, 0, 0, 0};
-                        mChatService.write(mSend);
+                        mAIChat.motor_run(0);
                     }
-
                 }
                 break;
 
@@ -544,7 +495,7 @@ public class BluetoothChatFragment extends Fragment {
         // Get the BluetoothDevice object
         BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
         // Attempt to connect to the device
-        mChatService.connect(device, secure);
+        mAIChat.connect(device, secure);
     }
 
     @Override
