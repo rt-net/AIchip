@@ -177,6 +177,7 @@ public class BluetoothChatFragment extends Fragment {
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                         progress = progress -100;
                         mAIChat.motor_run(progress);
+                        //mAIChat.get_Data();
                     }
                     // トグルがタッチされた時に呼ばれる
                     public void onStartTrackingTouch(SeekBar seekBar) {
@@ -267,6 +268,13 @@ public class BluetoothChatFragment extends Fragment {
 
             byte[] mSend = {99,109,100,0,0,0,0,0,0,0};
 
+            if(get.equals("get")){
+                float data = mAIChat.get_ACC_x();
+                Log.d(TAG, "ACC_x data ->" + data);
+            }
+            if(get.equals("0")){
+                mAIChat.motor_run((short)0);
+            }
             if(get.equals("gon")){
                 mAIChat.led_g_switch(Boolean.TRUE);
             }
@@ -381,11 +389,11 @@ public class BluetoothChatFragment extends Fragment {
                     mConversationArrayAdapter.add("Me:  " + writeMessage);
                     break;
                 case Constants.MESSAGE_READ:
-                    //Get senser data here.
+                    //Get sensor data here.
                     byte[] readBuf = (byte[]) msg.obj;
                     // construct a string from the valid bytes in the buffer
                     String readMessage = new String(readBuf, 0, msg.arg1);
-                    mConversationArrayAdapter.add(mConnectedDeviceName + ":  " + readMessage);
+                    //mConversationArrayAdapter.add(mConnectedDeviceName + ":  " + readMessage);
                     break;
                 case Constants.MESSAGE_DEVICE_NAME:
                     // save the connected device's name
@@ -410,7 +418,7 @@ public class BluetoothChatFragment extends Fragment {
             case REQUEST_CODE:
                 if (resultCode == Activity.RESULT_OK) {
                     String resultsString = "";
-                    Log.d(TAG, "request_code!!!");
+                    //Log.d(TAG, "request_code!!!");
                     // 結果文字列リスト
                     ArrayList<String> results = data.getStringArrayListExtra(
                             RecognizerIntent.EXTRA_RESULTS);

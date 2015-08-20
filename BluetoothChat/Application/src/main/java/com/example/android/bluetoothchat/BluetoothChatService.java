@@ -54,12 +54,16 @@ public class BluetoothChatService {
 
     // Member fields
     private final BluetoothAdapter mAdapter;
-    private final Handler mHandler;
+    //private final Handler mHandler;
+    private Handler mHandler;
     private AcceptThread mSecureAcceptThread;
     private AcceptThread mInsecureAcceptThread;
     private ConnectThread mConnectThread;
     private ConnectedThread mConnectedThread;
     private int mState;
+    //scratch
+    private byte[] BuffData;
+
 
     // Constants that indicate the current connection state
     public static final int STATE_NONE = 0;       // we're doing nothing
@@ -203,6 +207,7 @@ public class BluetoothChatService {
         bundle.putString(Constants.DEVICE_NAME, device.getName());
         msg.setData(bundle);
         mHandler.sendMessage(msg);
+        Log.d(TAG, String.valueOf(msg));
 
         setState(STATE_CONNECTED);
     }
@@ -283,7 +288,9 @@ public class BluetoothChatService {
         BluetoothChatService.this.start();
     }
 
-
+    public byte[] getBuffer(){
+        return BuffData;
+    }
 
     /**
      * This thread runs while listening for incoming connections. It behaves
@@ -452,6 +459,7 @@ public class BluetoothChatService {
         private final InputStream mmInStream;
         private final OutputStream mmOutStream;
 
+
         public ConnectedThread(BluetoothSocket socket, String socketType) {
             Log.d(TAG, "create ConnectedThread: " + socketType);
             mmSocket = socket;
@@ -472,7 +480,9 @@ public class BluetoothChatService {
 
         public void run() {
             Log.i(TAG, "BEGIN mConnectedThread");
-            byte[] buffer = new byte[1024];
+            //byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[42
+                    ];
             int bytes;
 
             // Keep listening to the InputStream while connected
@@ -484,6 +494,7 @@ public class BluetoothChatService {
                     String resultString;
                     //resultString = new String(buffer, "US-ASCII");
                     String s = String.valueOf(bytes);
+                    BuffData = buffer;
                     //Log.d(TAG,resultString);
                     //Log.d(TAG,s);
 
