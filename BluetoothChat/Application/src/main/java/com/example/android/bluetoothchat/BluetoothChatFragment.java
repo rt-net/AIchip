@@ -45,8 +45,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SeekBar;
+import android.widget.ProgressBar;
 import android.speech.RecognizerIntent;
-import android.content.ActivityNotFoundException;
 
 import com.example.android.common.logger.Log;
 
@@ -70,7 +70,19 @@ public class BluetoothChatFragment extends Fragment {
     private EditText mOutEditText;
     private Button mSendButton;
     //scratch
+    private Boolean mGLEDstate = Boolean.FALSE;
+    private Boolean mRLEDstate = Boolean.FALSE;
+
     private SeekBar mSendSeekBar;
+    private Button mStartButton;
+    private Button mStopButton;
+    private Button mBackButton;
+    private Button mRedButton;
+    private Button mGreenButton;
+    private TextView mBatteryView;
+    private ProgressBar mAccx;
+    private ProgressBar mAccy;
+    private ProgressBar mAccz;
 
     /**
      * Name of the connected device
@@ -115,6 +127,7 @@ public class BluetoothChatFragment extends Fragment {
             Toast.makeText(activity, "Bluetooth is not available", Toast.LENGTH_LONG).show();
             activity.finish();
         }
+
     }
 
 
@@ -168,25 +181,41 @@ public class BluetoothChatFragment extends Fragment {
         mOutEditText = (EditText) view.findViewById(R.id.edit_text_out);
         mSendButton = (Button) view.findViewById(R.id.button_send);
         //scratch
+        //define
+        mStartButton = (Button) view.findViewById(R.id.startbutton);
+        mStopButton = (Button) view.findViewById(R.id.stopbutton);
+        mBackButton = (Button) view.findViewById(R.id.backbutton);
+        mGreenButton = (Button) view.findViewById(R.id.greenbutton);
+        mRedButton = (Button) view.findViewById(R.id.redbutton);
+        mBatteryView = (TextView) view.findViewById(R.id.battery_View);
         mSendSeekBar = (SeekBar) view.findViewById(R.id.seekBar);
-        mSendSeekBar.setMax(100*2);
+        mAccx = (ProgressBar) view.findViewById(R.id.acc_x);
+        mAccy = (ProgressBar) view.findViewById(R.id.acc_y);
+        mAccz = (ProgressBar) view.findViewById(R.id.acc_z);
+
+        //function
+        mSendSeekBar.setMax(100 * 2);
         mSendSeekBar.setProgress(100);
         mSendSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                    // トグルがドラッグされると呼ばれる
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        progress = progress -100;
-                        mAIChat.motor_run(progress);
-                        //mAIChat.get_Data();
-                    }
-                    // トグルがタッチされた時に呼ばれる
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-                    }
-                    // トグルがリリースされた時に呼ばれる
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-                    }
+            // トグルがドラッグされると呼ばれる
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progress = progress - 100;
+                mAIChat.motor_run(progress);
+                float data = mAIChat.get_Duty();
+                //mConversationArrayAdapter.add("Duty:  " + data);
+                //mAIChat.get_Data();
+            }
 
-                });
+            // トグルがタッチされた時に呼ばれる
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            // トグルがリリースされた時に呼ばれる
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+
+        });
     }
 
     /**
@@ -211,21 +240,66 @@ public class BluetoothChatFragment extends Fragment {
                 if (null != view) {
                     TextView textView = (TextView) view.findViewById(R.id.edit_text_out);
                     String message = textView.getText().toString();
-                    //scratch
-                    Log.d(TAG, "Button test!!!");
-                    //int prg = mSendSeekBar.getProgress();
-                    //String seek = String.valueOf(prg);
-                    //Log.d(TAG,seek);
-
                     sendMessage(message);
                 }
             }
         });
 
-        // Initialize the BluetoothChatService to perform bluetooth connections
-        //mAIChat = new BluetoothChatService(getActivity(), mHandler);
-        mAIChat = new AI_CHIP(getActivity(), mHandler);
+        // Initialize the send button with a listener that for click events
+        mStartButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mAIChat.motor_run(100);
+                float data = mAIChat.get_Duty();
+                mConversationArrayAdapter.add("Duty: " + data);
+            }
+        });
 
+        // Initialize the send button with a listener that for click events
+        mStopButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mAIChat.motor_run(0);
+                float data = mAIChat.get_Duty();
+                mConversationArrayAdapter.add("Duty:  " + data);
+            }
+        });
+
+        // Initialize the send button with a listener that for click events
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mAIChat.motor_run(-100);
+                float data = mAIChat.get_Duty();
+                mConversationArrayAdapter.add("Duty:  " + data);
+            }
+        });
+
+        // Initialize the send button with a listener that for click events
+        mGreenButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(mGLEDstate == Boolean.FALSE){
+                    mAIChat.led_g_switch(Boolean.TRUE);
+                    mGLEDstate = Boolean.TRUE;
+                }else{
+                    mAIChat.led_g_switch(Boolean.FALSE);
+                    mGLEDstate = Boolean.FALSE;
+                }
+            }
+        });
+
+        // Initialize the send button with a listener that for click events
+        mRedButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(mRLEDstate == Boolean.FALSE){
+                    mAIChat.led_r_switch(Boolean.TRUE);
+                    mRLEDstate = Boolean.TRUE;
+                }else{
+                    mAIChat.led_r_switch(Boolean.FALSE);
+                    mRLEDstate = Boolean.FALSE;
+                }
+            }
+        });
+
+
+        mAIChat = new AI_CHIP(getActivity(), mHandler);
         // Initialize the buffer for outgoing messages
         mOutStringBuffer = new StringBuffer("");
     }
@@ -269,8 +343,17 @@ public class BluetoothChatFragment extends Fragment {
             byte[] mSend = {99,109,100,0,0,0,0,0,0,0};
 
             if(get.equals("get")){
-                float data = mAIChat.get_ACC_x();
-                Log.d(TAG, "ACC_x data ->" + data);
+                float data = mAIChat.get_Angle();
+                Log.d(TAG, "data -> "+String.valueOf(data));
+                //float[] data = mAIChat.get_Mag();
+                /*
+                Log.d(TAG, "x data -> " + data[0]);
+                Log.d(TAG, "y data -> " + data[1]);
+                Log.d(TAG, "z data -> " + data[2]);
+                */
+            }
+            if(get.equals("set")){
+                mAIChat.set_Gyro();
             }
             if(get.equals("0")){
                 mAIChat.motor_run((short)0);
@@ -386,7 +469,7 @@ public class BluetoothChatFragment extends Fragment {
                     byte[] writeBuf = (byte[]) msg.obj;
                     // construct a string from the buffer
                     String writeMessage = new String(writeBuf);
-                    mConversationArrayAdapter.add("Me:  " + writeMessage);
+                    //mConversationArrayAdapter.add("Me:  " + writeMessage);
                     break;
                 case Constants.MESSAGE_READ:
                     //Get sensor data here.
@@ -394,6 +477,17 @@ public class BluetoothChatFragment extends Fragment {
                     // construct a string from the valid bytes in the buffer
                     String readMessage = new String(readBuf, 0, msg.arg1);
                     //mConversationArrayAdapter.add(mConnectedDeviceName + ":  " + readMessage);
+                    String battery = String.valueOf(mAIChat.get_battery());
+                    mBatteryView.setText(battery + "V");
+                    float[] acc_data = mAIChat.get_ACC();
+                    int[] acc = {0,0,0};
+                    acc[0]= (int) (100 * (acc_data[0] * 2048 + 32767) / 65536);
+                    mAccx.setProgress(acc[0]);
+                    acc[1] = (int) (100 * (acc_data[1] * 2048 + 32767) / 65536);
+                    mAccy.setProgress(acc[1]);
+                    acc[2] = (int) (100 * (acc_data[2] * 2048 + 32767) / 65536);
+                    mAccz.setProgress(acc[2]);
+
                     break;
                 case Constants.MESSAGE_DEVICE_NAME:
                     // save the connected device's name

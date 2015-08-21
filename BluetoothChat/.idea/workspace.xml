@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1968c458-9200-448c-b327-4d7da45b51ab" name="Default" comment="" />
@@ -34,42 +36,53 @@
       <file leaf-file-name="BluetoothChatFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothchat/BluetoothChatFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="18.333334">
-              <caret line="233" column="38" selection-start-line="233" selection-start-column="38" selection-end-line="233" selection-end-column="38" />
+            <state vertical-scroll-proportion="161.66667">
+              <caret line="196" column="37" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
               <folding>
-                <element signature="e#12524#15007#0" expanded="true" />
-                <element signature="e#12892#12952#0" expanded="true" />
-                <element signature="e#15006#15007#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BluetoothChatService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothchat/BluetoothChatService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-275.0">
-              <caret line="495" column="41" selection-start-line="495" selection-start-column="41" selection-end-line="495" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#18787#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#3708#3709#0" expanded="true" />
-                <element signature="e#3737#3738#0" expanded="true" />
-                <element signature="e#9802#9803#0" expanded="true" />
-                <element signature="e#9833#9834#0" expanded="true" />
+                <element signature="e#7970#8429#0" expanded="true" />
+                <element signature="e#8428#8429#0" expanded="true" />
+                <element signature="e#8549#8796#0" expanded="true" />
+                <element signature="e#8795#8796#0" expanded="true" />
+                <element signature="e#8915#9161#0" expanded="true" />
+                <element signature="e#9160#9161#0" expanded="true" />
+                <element signature="e#9280#9529#0" expanded="true" />
+                <element signature="e#9528#9529#0" expanded="true" />
+                <element signature="e#9649#10041#0" expanded="true" />
+                <element signature="e#10040#10041#0" expanded="true" />
+                <element signature="e#10159#10551#0" expanded="true" />
+                <element signature="e#10550#10551#0" expanded="true" />
+                <element signature="e#11520#11542#0" expanded="true" />
+                <element signature="e#15976#16036#0" expanded="true" />
+                <element signature="e#16243#16268#0" expanded="true" />
+                <element signature="e#16470#16498#0" expanded="true" />
+                <element signature="e#21787#21818#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AI_CHIP.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="fragment_bluetooth_chat.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout/fragment_bluetooth_chat.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="97" column="32" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AI_CHIP.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothchat/AI_CHIP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1530613">
-              <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+            <state vertical-scroll-proportion="-9.962963">
+              <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
               <folding>
-                <element signature="e#691#692#0" expanded="true" />
-                <element signature="e#730#731#0" expanded="true" />
+                <element signature="e#777#778#0" expanded="true" />
+                <element signature="e#816#817#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1296,10 +1309,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Application/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothchat/BluetoothChatService.java" />
         <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothchat/BluetoothChatFragment.java" />
         <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothchat/AI_CHIP.java" />
+        <option value="$PROJECT_DIR$/Application/src/main/res/layout/fragment_bluetooth_chat.xml" />
       </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="NamedScopeManager">
@@ -1333,7 +1355,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1354,6 +1378,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BluetoothChat" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1409,14 +1451,13 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="SHTBC102672" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Galaxy_Nexus_API_22" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="239" />
   </component>
   <component name="RunManager" selected="Android Application.Application">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1617,8 +1658,8 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.339934" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
@@ -1627,7 +1668,7 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4240924" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17161717" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1639,9 +1680,39 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.339934" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08250825" sideWeight="0.49676898" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -1656,12 +1727,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="509" column="42" selection-start-line="509" selection-start-column="42" selection-end-line="509" selection-end-column="42" />
           <folding>
-            <element signature="e#0#18787#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#3708#3709#0" expanded="true" />
-            <element signature="e#3737#3738#0" expanded="true" />
-            <element signature="e#9802#9803#0" expanded="true" />
-            <element signature="e#9833#9834#0" expanded="true" />
+            <element signature="e#0#18766#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1671,9 +1738,24 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="369" column="8" selection-start-line="369" selection-start-column="8" selection-end-line="369" selection-end-column="8" />
           <folding>
-            <element signature="e#12524#15007#0" expanded="true" />
-            <element signature="e#12892#12952#0" expanded="true" />
-            <element signature="e#15006#15007#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7970#8429#0" expanded="true" />
+            <element signature="e#8428#8429#0" expanded="true" />
+            <element signature="e#8549#8796#0" expanded="true" />
+            <element signature="e#8795#8796#0" expanded="true" />
+            <element signature="e#8915#9161#0" expanded="true" />
+            <element signature="e#9160#9161#0" expanded="true" />
+            <element signature="e#9280#9529#0" expanded="true" />
+            <element signature="e#9528#9529#0" expanded="true" />
+            <element signature="e#9649#10041#0" expanded="true" />
+            <element signature="e#10040#10041#0" expanded="true" />
+            <element signature="e#10159#10551#0" expanded="true" />
+            <element signature="e#10550#10551#0" expanded="true" />
+            <element signature="e#11520#11542#0" expanded="true" />
+            <element signature="e#15976#16036#0" expanded="true" />
+            <element signature="e#16243#16268#0" expanded="true" />
+            <element signature="e#16470#16498#0" expanded="true" />
+            <element signature="e#21787#21818#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1683,16 +1765,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <element signature="e#691#692#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
+            <element signature="e#777#778#0" expanded="true" />
+            <element signature="e#816#817#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-22/android.jar!/java/lang/Byte.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1724,45 +1799,92 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-22/android.jar!/java/lang/Byte.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="13.96">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2388#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-22/java/lang/Byte.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2903225">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothchat/BluetoothChatService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-275.0">
-          <caret line="495" column="41" selection-start-line="495" selection-start-column="41" selection-end-line="495" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#18787#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#3708#3709#0" expanded="true" />
-            <element signature="e#3737#3738#0" expanded="true" />
-            <element signature="e#9802#9803#0" expanded="true" />
-            <element signature="e#9833#9834#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="483" column="39" selection-start-line="483" selection-start-column="39" selection-end-line="483" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothchat/BluetoothChatFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="18.333334">
-          <caret line="233" column="38" selection-start-line="233" selection-start-column="38" selection-end-line="233" selection-end-column="38" />
+        <state vertical-scroll-proportion="161.66667">
+          <caret line="196" column="37" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
           <folding>
-            <element signature="e#12524#15007#0" expanded="true" />
-            <element signature="e#12892#12952#0" expanded="true" />
-            <element signature="e#15006#15007#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7970#8429#0" expanded="true" />
+            <element signature="e#8428#8429#0" expanded="true" />
+            <element signature="e#8549#8796#0" expanded="true" />
+            <element signature="e#8795#8796#0" expanded="true" />
+            <element signature="e#8915#9161#0" expanded="true" />
+            <element signature="e#9160#9161#0" expanded="true" />
+            <element signature="e#9280#9529#0" expanded="true" />
+            <element signature="e#9528#9529#0" expanded="true" />
+            <element signature="e#9649#10041#0" expanded="true" />
+            <element signature="e#10040#10041#0" expanded="true" />
+            <element signature="e#10159#10551#0" expanded="true" />
+            <element signature="e#10550#10551#0" expanded="true" />
+            <element signature="e#11520#11542#0" expanded="true" />
+            <element signature="e#15976#16036#0" expanded="true" />
+            <element signature="e#16243#16268#0" expanded="true" />
+            <element signature="e#16470#16498#0" expanded="true" />
+            <element signature="e#21787#21818#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothchat/AI_CHIP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1530613">
-          <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+        <state vertical-scroll-proportion="-9.962963">
+          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
           <folding>
-            <element signature="e#691#692#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
+            <element signature="e#777#778#0" expanded="true" />
+            <element signature="e#816#817#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout/fragment_bluetooth_chat.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="97" column="32" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
