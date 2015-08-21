@@ -554,6 +554,19 @@ public class BluetoothChatFragment extends Fragment {
                     if(results.get(0).equals("誉")) {
                         mAIChat.motor_run(0);
                     }
+                    if(results.get(0).equals("もどれ")) {
+                        mAIChat.motor_run(-100);
+                    }
+                    if(results.get(0).equals("戻れ")) {
+                        mAIChat.motor_run(-100);
+                    }
+                    if(results.get(0).equals("back")) {
+                        mAIChat.motor_run(-100);
+                    }
+                    if(results.get(0).equals("バック")) {
+                        mAIChat.motor_run(-100);
+                    }
+
                 }
                 break;
 
