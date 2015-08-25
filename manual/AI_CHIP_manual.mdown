@@ -82,7 +82,8 @@ AIミニ四駆には（デフォルトで）三つの起動モードが存在し
 </a>
 1. [Processing の導入](#p1)  
 2. [サンプルプログラムのダウンロード](#p2)  
-3. [サンプルプログラムの実行](#p3)
+3. [サンプルプログラムの実行](#p3)  
+4. [サンプルプログラムの解説](#p4)  
 
 <a id="p1">
 ####1. Processing の導入
@@ -189,6 +190,202 @@ processingを起動したら、[2. サンプルプログラムのダウンロー
 <p><img alt="original" src="./pic/reseve_data1.png" width="600px" border="5" ></p>  
 (Table.2-2)  
 <p><img alt="original" src="./pic/reseve_data2.png" width="600px" border="5" ></p>  
+
+<a id="p4">
+####4. サンプルプログラムの解説
+</a>
+
+* サンプルプログラムの機能
+* サンプルの流れ
+* コマンドの生成方法
+
+#####サンプルプログラムの機能
+プログラムを実行すると、ウィンドウが一つ開きます。そのウィンドウ上をクリックすると、AIミニ四駆の緑のLEDが点灯します。  
+エディタ下部の、ターミナルにAIミニ四駆からの出力データが表示されます。このデータは（Table.2−1）と（Table.2−2）を参考に解析してください。  
+また、キーボードのArrowkeyの右と左を押すとAIミニ四駆のモーターが動きます。  
+サンプルプログラムは以上の３つの機能を有しています。  
+
+#####サンプルの流れ
+はじめに次の行が実行されます
+
+>//シリアル通信ライブラリを取り込む  
+>import processing.serial.*;  
+>//ポートのインスタンス  
+>Serial port;  
+>// シリアルポートから取得したデータ(Byte)  
+>int inByte;  
+>float m_duty = 0;  
+
+ここではプログラムの実行に必要なライブラリの取り込みや、Bluetoothの通信に必要なインスタンスの生成及びグローバル変数の定義を行っています。  
+この行はプログラム開始時に一回だけ実行されます。  
+また、この処理が終了すると、各関数が初めて実行されるようになります。  
+
+>void setup(){  
+  //画面の設定  
+  size(100,100);  
+  //シリアルポート設定（Bluetoothのポート）  
+  port=new Serial(this,"/dev/tty.RNBT-4EA9-RNI-SPP",115200); //Mac  
+  //port=new Serial(this,"COM5",115200); //Windows  
+  port.write(command0(0));  
+}  
+
+setup関数は、プログラムが開始すると初めに一度だけ実行される関数です。  
+この関数では、実行時に出てくるウィンドウのサイズの設定と、通信ポートの設定を行っています。  
+必要に応じて設定内容の変更を行って下さい。詳しい設定の方法は***3. サンプルプログラムの実行***に記載されています。  
+うまく動作しない場合はそちらを確認してください。  
+
+>void draw(){
+  background(51);
+}
+
+draw関数はループして実行されます。  
+background関数は表示されるウィンドウの背景の色を変更しているだけです。  
+
+>void serialEvent(Serial p){  
+    // 設定したシリアルポートからデータを読み取り  
+    inByte = port.read();  
+    println(hex(inByte));  
+}  
+
+serialEvent関数はAIミニ四駆からデータが、送られるたびに実行されます。  
+データはprintln関数により、ターミナルに表示されます。  
+
+>void keyPressed() {  
+if (key == CODED) {      // コード化されているキーが押された  
+    if (keyCode == LEFT) {    
+      if(m_duty > -1){  
+        m_duty -= 0.1;  
+        //println(m_duty);  
+      }  
+      port.write(command0(m_duty));  
+    }else if(keyCode == RIGHT){  
+      if(m_duty < 1){  
+        m_duty += 0.1;  
+        //println(m_duty);  
+      }  
+      port.write(command0(m_duty));  
+    }  
+  }  
+}  
+
+keyPressed関数はキーボードが押されるたびに実行されます。今回はArrowkeyの左と右が押された時のみ有効になっています。  
+コマンドはcommand0関数を用いて生成されます。  
+生成されたコマンドはport.write関数を用いて、AIミニ四駆に送信されます。  
+***コマンドの生成方法については後述します。***  
+
+>/**  
+ * id 0: dutyの変更コマンド  
+ *  
+ * @param duty dutyを-1.0から1.0で指定 <br>  
+ *             負の値はモーターを逆の方向に回す  
+ * @return 10byteのコマンド配列  
+ */  
+byte[] command0(float duty){  
+  byte[] command = new byte[10];  
+  int int_duty;  
+  int duty_L;  
+  int duty_H;  
+ >   
+  int_duty = (int)(duty * 32767.0);  
+  if(int_duty<0)  
+  {  
+    int_duty += 65535;  
+  }  
+  duty_L = int_duty & 0x000000ff ;  
+  duty_H = (int_duty & 0x0000ff00)>>8;  
+ >   
+  //ヘッダー  
+  command[0] =  99;  
+  command[1] = 109;  
+  command[2] = 100;  
+  //id  
+  command[3] =   0;  
+  //値  
+  command[4] = byte(duty_L);  
+  command[5] = byte(duty_H);  
+  //ダミー  
+  command[6] = 0;  
+  command[7] = 0;  
+  command[8] = 0;  
+  command[9] = 0;  
+>    
+  return command;  
+}  
+
+このコマンドはkeyPressed内で実行されます。  
+引数のdutyによってAIミニ四駆のモーターのパワーを変更するようなコマンドを生成します。  
+
+>void mousePressed(){  
+  byte[] command = new byte[10];  
+    //ヘッダー  
+  command[0] =  99;  
+  command[1] = 109;  
+  command[2] = 100;  
+  //id   
+  command[3] =   1;  
+  //値  
+  command[4] =  byte(1);  
+  //ダミー  
+  command[5] = 0;  
+  command[6] = 0;  
+  command[7] = 0;  
+  command[8] = 0;  
+  command[9] = 0;  
+  port.write(command);  
+}  
+
+mousePressed関数はマウスがクリックされると実行されます。  
+今回は緑のLEDが点灯するようにコマンドを生成したのちに、AIミニ四駆に送信しています。  
+
+>void mouseReleased(){  
+    byte[] command = new byte[10];  
+    //ヘッダー  
+  command[0] =  99;  
+  command[1] = 109;  
+  command[2] = 100;  
+  //id   
+  command[3] =   1;  
+  //値  
+  command[4] =  byte(0);  
+  //ダミー  
+  command[5] = 0;  
+  command[6] = 0;  
+  command[7] = 0;  
+  command[8] = 0;  
+  command[9] = 0;  
+  port.write(command);  
+}  
+
+mouseRelease関数はマウスのクリックが解除されると実行されます。  
+今回は緑のLEDが消灯するようにコマンドを生成したのちに、AIミニ四駆に送信しています。
+
+#####コマンドの生成方法
+AIミニ四駆への送信コマンドは要素数10のbyte配列を使用します。（固定長）(ref.2-1)  
+ヘッダーの始め3byteは必ず固定で、「99」「109」「100」を代入してください。
+4byte目はコマンドidです。ここの数字を変更することで、AIミニ四駆への命令の種類を変えることができます。  
+5byte目以降はデータフェールドです。データフィールドは全て利用するわけではありません。必要のない要素には「0」を代入してください。 
+詳細は、同ディレクトリ内に存在する「AIミニ四駆ハッカソン」を参照ください。
+<p><img alt="original" src="./pic/command_pro.JPG" width="600px" border="5" ></p>  
+(ref.2-1 コマンド送信プロトコルの説明)
+
+
+- **id = 0** モーターコントロール用コマンド  
+モーターを制御するには、送信コマンドの4byte目の「id」を「0」にする必要があります。(ref.2-2)  
+データフィールドは5byte目と6byte目にdutyの値を入れます。その他のデータフィールドには「0」を代入します。  
+dutyの値は16bitの符号付整数です。上位bitが5byte目、下位bitが6byte目です。配列の順番に気をつけてください。
+<p><img alt="original" src="./pic/command_mortor.JPG" width="600px" border="5" ></p>  
+(ref.2-2 モーター制御コマンド)
+
+モーターのduty設定例
+***duty = 50% ***
+>a
+
+- **id=1** 緑のLED制御コマンド  
+LEDを制御するには、送信コマンドの4byte目の「id」を「1」にする必要があります。(ref.2-3)  
+データフィールドは5byte目に「0」を入れると、緑のLEDが消灯します。「1」を入れると緑のLEDが点灯します。  
+その他のデータフィールドは「0」を代入します。  
+<p><img alt="original" src="./pic/command_led.JPG" width="600px" border="5" ></p>  
+(ref.2-3) LED制御コマンド
 
 <a id="a0">
 ###Androidアプリの使い方  
