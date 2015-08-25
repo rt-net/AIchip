@@ -39,10 +39,10 @@
 ####2. AIミニ四駆の起動方法
 </a>
 はじめに、AIミニ四駆の配線が図の通りになっているか確認をしてください。(Fig)  
-<p><img alt="original" src="./pic/car.png" width="400px" ></p>
+<p><img alt="original" src="./pic/car.JPG" width="400px" ></p>
 図の向きにおいた時に、**右側**が**黒と白**のケーブルが接続されていて、**左側**が**青と黄色**のケーブルが接続されているのが正しい配線です。  
 **逆に配線をすると壊れるので絶対に逆に配線しないでください。**(Fig)  
-<p><img alt="original" src="./pic/miss_line.png" width="400px" ></p>
+<p><img alt="original" src="./pic/miss_line.JPG" width="400px" ></p>
 AIミニ四駆には電源スイッチが二箇所あります。  
 一つが車体上部にある[CPU用電源スイッチ](#pic1)です。  
 こちらはLiPoバッテリーの正面にスライドスイッチがあるので、それを「ON」または「＋」側へスライドさせてください。  
@@ -91,7 +91,7 @@ Processing の[ダウンロードページ](https://processing.org/download/)か
 <p><img alt="original" src="./pic/DL1_1.jpg" width="600px" ></p>  
 <p><img alt="original" src="./pic/DL1_2.jpg" width="600px" ></p>  
 ダウンロード画面へ遷移すると、画面の一番上に最新のバージョンのダウンロード項目が表示されます。最新版を利用する場合には、この項目のうち、お使いのOSが表記されているのリンクを選択してください。  
-<p><img alt="original" src="./pic/DL2_1.png" width="600px" ></p>  
+<p><img alt="original" src="./pic/DL2_1.JPG" width="600px" ></p>  
 過去のバージョンをダウンロードしたい場合は、画面中部にある「Stable Release」の項目からダウンロードしてください。こちらでダウンロードする場合も、お使いのOSが表記されているリンクを選択してダウンロードしてください。  
 現在サンプルアプリケーションの動作が確認できているバージョンは **3.0 beta 4** 及び **2.2.1**です。Processingをダウンロードする際にはバージョンにご注意下さい。
 ダウンロードができたら、ソフトのインストールを行ってください。  
@@ -108,7 +108,7 @@ Processing の[ダウンロードページ](https://processing.org/download/)か
 </a>
 ProcessingのサンプルプログラムはGitHubの[AI-CHIPのページ](https://github.com/rt-net/AIchip/tree/master)から行ってください。  
 ダウンロードする際には、画面右側の「Download ZIP」をクリックしてください。  
-<p><img alt="original" src="./pic/Github1.png" width="800px" border="5" ></p>  
+<p><img alt="original" src="./pic/Github1.JPG" width="800px" border="5" ></p>  
 ZIPファイルがダウンロード出来たら、ダウンロードファイルを任意の場所に解凍してください。  
 
 <a id="p3">
@@ -117,37 +117,37 @@ ZIPファイルがダウンロード出来たら、ダウンロードファイ�
 まず、[1. Processing の導入](#p1)でインストールしたProcessingを起動してください。  
 processingを起動したら、[2. サンプルプログラムのダウンロード](#p2)で解凍したフォルダ内の「Processing」→「sample_App」内にある「sample_App.pde」を開いてください。  
 開いたら、パソコンとAIミニ四駆のBluetoothのペアリングと通信ポートの設定を行ってください。  
-<p><img alt="original" src="./pic/processing_code1.png" width="600px" border="5" ></p>  
+<p><img alt="original" src="./pic/processing_code1.JPG" width="600px" border="5" ></p>  
 
 * Windows  
 コントロールパネルを開いて、ハードウェアとサウンドにある項目の「デバイスの追加」を選択します。(Fig)	
-<p><img alt="original" src="./pic/conpane.png" width="400px" border="5" ></p>  
+<p><img alt="original" src="./pic/conpane.JPG" width="400px" border="5" ></p>  
 (Fig)  
 デバイスの追加の画面が表示されたら、AIミニ四駆を通信モードで起動します。  
 起動すると、通常Bluetoothモジュールが赤く点滅します。  
 パソコン側で認識すると、「実際の表示名は何？」が表示されるので、選択して「次へ」を押してください。この時選択した名前は、後ほど使うので覚えておいてください。(Fig)	
-<p><img alt="original" src="./pic/device_add.png" width="400px" border="5" ></p>  
+<p><img alt="original" src="./pic/device_add.JPG" width="400px" border="5" ></p>  
 (Fig)  
 次に、ペアリングコードの比較のウィンドウが表示されるので、「次へ」を押してください。(Fig)  
-<p><img alt="original" src="./pic/connect.png" width="400px" border="5" ></p>  
+<p><img alt="original" src="./pic/connect.JPG" width="400px" border="5" ></p>  
 (Fig)  
 最後に次のような画面が表示されると接続が完了します。(Fig)  
-<p><img alt="original" src="./pic/connected.png" width="400px" border="5" ></p>  
+<p><img alt="original" src="./pic/connected.JPG" width="400px" border="5" ></p>  
 (Fig)   
 接続が完了したら、接続され
 たポートの確認を行います。ポートの確認は、Bluetoothの設定画面から行います。  
 まず、画面右下にあるタスクトレイの中の、Bluetoothアイコンを右クリックしてください。(Fig)  
-<p><img alt="original" src="./pic/bluetooth.png" width="400px" border="5" ></p>  
+<p><img alt="original" src="./pic/bluetooth.JPG" width="400px" border="5" ></p>  
 (Fig)  
 右クリックをするとメニューリストが開かれるので「設定を開く」を選択してください。(Fig)  
-<p><img alt="original" src="./pic/bluetooth2.png" width="400px" border="5" ></p>  
+<p><img alt="original" src="./pic/bluetooth2.JPG" width="400px" border="5" ></p>  
 (Fig)  
 「設定を開く」をクリックすると、次にような「Bluetooth」の設定画面が開かれます。開かれたら、タブの「COMポート」をクリックしてください。(Fig)  
-<p><img alt="original" src="./pic/bluetooth3.png" width="400px" border="5" ></p>  
+<p><img alt="original" src="./pic/bluetooth3.JPG" width="400px" border="5" ></p>  
 (Fig)  
 「COMポート」をクリックすると、パソコンに接続されたBluetooth機器の一覧が表示されます。この中の、先ほど接続した名前と「’RNI-SPP’」が書かれた欄を確認してください。  
 方向が「発信」となっているCOMポートを確認してください。(Fig)  
-<p><img alt="original" src="./pic/bluetooth4.png" width="400px" border="5" ></p>  
+<p><img alt="original" src="./pic/bluetooth4.JPG" width="400px" border="5" ></p>  
 (Fig)  
 確認したポートはプログラムの14行目に書き込みます。デフォルトで**「"COM5"」**となっている部分を自分で確認したCOMポートに書き換えてください。  
 **デフォルトでは14行目がコメントアウト（プログラムに反映されない状態に）されています。**   
