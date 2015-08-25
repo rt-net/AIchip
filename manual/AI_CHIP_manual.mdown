@@ -16,33 +16,34 @@
 ####1. AIミニ四駆の入出力装置
 </a>
 
-1. CPU用電源スイッチ  (Fig.)  
-2. モーター用電源スイッチ  (Fig.)  
-3. プッシュスイッチ×2  (Fig.)(Fig.)  
+1. CPU用電源スイッチ  (Fig.1)  
+2. モーター用電源スイッチ  (Fig.2)  
+3. プッシュスイッチ×2  (Fig.3)(Fig.4)  
 
 <a id="pic1">
 <p><img alt="original" src="./pic/CPU_power.JPG" width="400px" ></p>
 </a>
-(Fig. CPU用電源スイッチ)  
+(Fig.1 CPU用電源スイッチ)  
 <a id="pic2">
 <p><img alt="original" src="./pic/mortor_power.JPG" width="400px" ></p>
 </a>
-(Fig. モーター用電源スイッチ)
+(Fig.2 モーター用電源スイッチ)
 <p><img alt="original" src="./pic/push_switch1.JPG" width="400px" ></p>
-(Fig. プッシュスイッチ場所（裏から）)
+(Fig.3 プッシュスイッチ場所（裏から）)
 <p><img alt="original" src="./pic/push_switch2.JPG" width="400px" ></p>
-(Fig. プッシュスイッチ場所（表から）)  
+(Fig.4 プッシュスイッチ場所（表から）)  
 
 <!-- ![test](./pic/R1135564.JPG){:width="100px"} -->
 
 <a id="u2">
 ####2. AIミニ四駆の起動方法
 </a>
-はじめに、AIミニ四駆の配線が図の通りになっているか確認をしてください。(Fig)  
+はじめに、AIミニ四駆の配線が図の通りになっているか確認をしてください。(Fig.5)  
 <p><img alt="original" src="./pic/car.JPG" width="400px" ></p>
-図の向きにおいた時に、**右側**が**黒と白**のケーブルが接続されていて、**左側**が**青と黄色**のケーブルが接続されているのが正しい配線です。  
-**逆に配線をすると壊れるので絶対に逆に配線しないでください。**(Fig)  
+(Fig.5 通常の配線)  
+図の向きにおいた時に、**右側**が**黒と白**のケーブルが接続されていて、**左側**が**青と黄色**のケーブルが接続されているのが正しい配線です。**逆に配線をすると壊れるので絶対に逆に配線しないでください。**(Fig.6)  
 <p><img alt="original" src="./pic/miss_line.JPG" width="400px" ></p>
+(Fig.6 )  
 AIミニ四駆には電源スイッチが二箇所あります。  
 一つが車体上部にある[CPU用電源スイッチ](#pic1)です。  
 こちらはLiPoバッテリーの正面にスライドスイッチがあるので、それを「ON」または「＋」側へスライドさせてください。  
@@ -154,9 +155,18 @@ processingを起動したら、[2. サンプルプログラムのダウンロー
 **14行目の先頭の「//」を削除し、13行目の先頭に「//」を書き足してください。**  
 
 * Mac  
-システム環境設定のBluetoothを選択します。次に、AIミニ四駆の電源をつけます。  
-その後、システム環境設定ウィンドウ内に表れるRNBT−××××を選択し、ペアリングを行います。  
-この「××××」の部分は、BluetoothモジュールのMAC IDの下四桁になります。各自確認して、プログラムを変更してください。  
+システム環境設定のBluetoothを選択します。次に、AIミニ四駆の電源を、通信モードでつけます。(Fig.)   
+<p><img alt="original" src="./pic/mac_bluetooth1.jpg" width="400px" border="5" ></p>
+(Fig.)  
+その後、システム環境設定ウィンドウ内に表れるRNBT−××××を選択し、ペアリングを行います。(Fig.)  
+<p><img alt="original" src="./pic/mac_bluetooth2.jpg" width="400px" border="5" ></p>
+(Fig.)  
+接続が完了すると、「接続済み」の表記になります。(Fig.)  
+<p><img alt="original" src="./pic/mac_bluetooth3.jpg" width="400px" border="5" ></p>
+(Fig.)  
+この「××××」の部分は、BluetoothモジュールのMAC IDの下四桁になります。  
+各自確認して、プログラムを変更してください。(Fig.)  
+<p><img alt="original" src="./pic/bluetooth_ID.jpg" width="400px" border="5" ></p>
 **ウィンドウのデバイス欄に表示されたデバイス名が違う場合は、13行目の設定を書き換えてください**  
 **"/dev/tty.RNBT-××××-RNI-SPP"**  
 
