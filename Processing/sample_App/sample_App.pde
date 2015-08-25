@@ -7,11 +7,12 @@ int inByte;
 float m_duty = 0;
 
 void setup(){
-  //横長の画面に設定
+  //画面の設定
   size(100,100);
   //シリアルポート設定（Bluetoothのポート）
   port=new Serial(this,"/dev/tty.RNBT-4EA9-RNI-SPP",115200); //Mac
   //port=new Serial(this,"COM5",115200); //Windows
+  port.write(command0(0));
 }
 
 void draw(){
