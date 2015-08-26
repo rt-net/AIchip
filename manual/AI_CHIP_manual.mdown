@@ -376,9 +376,74 @@ dutyの値は16bitの符号付整数です。上位bitが5byte目、下位bitが
 <p><img alt="original" src="./pic/command_mortor.JPG" width="600px" border="5" ></p>  
 (ref.2-2 モーター制御コマンド)
 
-モーターのduty設定例
-***duty = 50% ***
->a
+    - ***モーターのduty設定例***  
+        - ***duty = 50% ***のコマンド例  
+> /\*  
+  int_duty = (int)(0.5 * 32767.0);   
+  int_duty = 16384 正確には16383.5ですが、切り上げました。  
+  16384を16進数に変換すると0x4000になります。  
+  よって　duty_L = 00, duty_H = 40　となります。  
+  \*/  
+  //ヘッダー  
+  command[0] =  99;  
+  command[1] = 109;  
+  command[2] = 100;  
+  //id  
+  command[3] =   0;  
+  //値  
+  command[4] = byte(00);  
+  command[5] = byte(40);  
+  //ダミー  
+  command[6] = 0;  
+  command[7] = 0;  
+  command[8] = 0;  
+  command[9] = 0;  
+
+        - ***duty = 20% ***のコマンド例  
+> /\*  
+  int_duty = (int)(0.2 * 32767.0);   
+  int_duty = 6553   正確には6553.4ですが、切り下げました。  
+  16384を16進数に変換すると0x1999になります。  
+  よって　duty_L = 99, duty_H = 19　となります。  
+  \*/  
+  //ヘッダー  
+  command[0] =  99;  
+  command[1] = 109;  
+  command[2] = 100;  
+  //id  
+  command[3] =   0;  
+  //値  
+  command[4] = byte(99);  
+  command[5] = byte(19);  
+  //ダミー  
+  command[6] = 0;  
+  command[7] = 0;  
+  command[8] = 0;  
+  command[9] = 0;  
+
+        - ***duty = -50% ***のコマンド例  
+> /\*  
+  int_duty = (int)(-0.5 * 32767.0);   
+  int_duty = -16384   正確には-16383.5ですが、切り下げました。  
+  int_dutyが負の値なので65535を加えます。加えた値は次のようになります。  
+  int_duty = (-16384 + 65535) = 49151  
+  49151を16進数に変換すると0x0000BFFFになります。  
+  よって　duty_L = FF, duty_H = BF　となります。  
+  \*/  
+  //ヘッダー  
+  command[0] =  99;  
+  command[1] = 109;  
+  command[2] = 100;  
+  //id  
+  command[3] =   0;  
+  //値  
+  command[4] = byte(FF);  
+  command[5] = byte(BF);  
+  //ダミー  
+  command[6] = 0;  
+  command[7] = 0;  
+  command[8] = 0;  
+  command[9] = 0;  
 
 - **id=1** 緑のLED制御コマンド  
 LEDを制御するには、送信コマンドの4byte目の「id」を「1」にする必要があります。(ref.2-3)  
