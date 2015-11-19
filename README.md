@@ -1,7 +1,7 @@
-# AIchip
+# AIchip devブランチ開発中のソフト, マニュアルのうち最新のものを置く
 
-・BluetoothChat  
-　内容：Android端末用のサンプルアプリケーション  
+・Android Sample
+　内容：Android端末用のサンプルアプリケーションのソース(Android Studio用)  
 
 　機能  
 　AIミニ四駆へ、複数のUIで命令が出せる  
