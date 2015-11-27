@@ -10,11 +10,9 @@ AIチップの回路図です.
 
 ### 概要
 
-processingとはarudinoのようにC言語likeな文法で簡単なプログラミングが
-できる言語です. <https://processing.org/>
-グラフィック等の表示が比較的に簡単にできるのでちょっとしたプログラミングに
-適しています.  AIチップのいくつかのサンプルはprocessingを用いて記述されています.
-processingの導入方法等についてはmanualフォルダ内のAI_CHIP_manual.pdfを参照してください.  
+processingとはarudinoのようにC言語likeな文法で簡単なプログラミングができる言語です. <https://processing.org/>
+
+グラフィック等の表示が比較的に簡単にできるのでちょっとしたプログラミングに適しています.  AIチップのいくつかのサンプルはprocessingを用いて記述されています.  processingの導入方法等についてはmanualフォルダ内のAI_CHIP_manual.pdfを参照してください.  
 
 
 ### ファイル内容
