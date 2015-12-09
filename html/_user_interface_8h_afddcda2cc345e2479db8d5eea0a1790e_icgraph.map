@@ -1,0 +1,9 @@
+<map id="getRightSWcount" name="getRightSWcount">
+<area shape="rect" id="node2" href="$_user_interface_8c.html#a79d499af646fa4451b1edc01dac956d8" title="debugUI" alt="" coords="204,5,273,32"/>
+<area shape="rect" id="node4" href="$mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="519,107,609,133"/>
+<area shape="rect" id="node6" href="$mode__control_run_8c.html#a29f463c22bc67d42c62f5bac44fad178" title="mode_controlRun" alt="" coords="348,107,471,133"/>
+<area shape="rect" id="node7" href="$mode__duty_max_8c.html#aac72eb218f372e7f1078b4a47c445df0" title="mode_dutyMax" alt="" coords="354,157,465,184"/>
+<area shape="rect" id="node8" href="$mode__select_duty_8c.html#a92b499e33422109bcbd3db09aea8561e" title="mode_selectDuty" alt="" coords="177,208,300,235"/>
+<area shape="rect" id="node3" href="$mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="361,5,457,32"/>
+<area shape="rect" id="node5" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="657,107,708,133"/>
+</map>

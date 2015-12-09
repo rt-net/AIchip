@@ -1,0 +1,564 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>RT-AICHIP-sample: src/AICHIP/mpu9150.c ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RT-AICHIP-sample
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li><a href="modules.html"><span>モジュール</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>大域各種</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('mpu9150_8c_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">mpu9150.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="mpu9150_8c.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="type_8h.html">type.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mpu9150_8h.html">mpu9150.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="i2c_8h.html">i2c.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="uart_8h.html">uart.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_system_tick_timer_8h.html">SystemTickTimer.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tiny_math_function_8h.html">TinyMathFunction.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="debug_8h.html">debug.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//i2cの操作に必要なもの達のextern宣言.  実体はi2c.cにある</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[<a class="code" href="i2c_8h.html#aeca034f67218340ecb2261a22c2f3dcd">BUFSIZE</a>];</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[<a class="code" href="i2c_8h.html#aeca034f67218340ecb2261a22c2f3dcd">BUFSIZE</a>];</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="type_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="mpu9150_8c.html#a99aaa16c53f267f8862d444f522d763c">I2CReadLength</a>, <a class="code" href="mpu9150_8c.html#a6227a3e6005b75f07040af82dc4b8a6e">I2CWriteLength</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//MPU9150のi2cのアドレス</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a19a331826b29abf912c345eb357d8e96">   23</a></span>&#160;<span class="preprocessor">#define MPU6050_W       0xd0</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a3eb8370c8028ea2bc2bd200b01890ab8">   24</a></span>&#160;<span class="preprocessor">#define MPU6050_R       0xd1</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a72fca55dfd1cf66688e3006233a94b6b">   25</a></span>&#160;<span class="preprocessor">#define AK8975_W        0x18</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a95a29eeeed3146f020893a332c448c64">   26</a></span>&#160;<span class="preprocessor">#define AK8975_R        0x19</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> Asa[]             = {0, 0, 0};         <span class="comment">//AK8975の感度補正データ格納用(感度補正データは工場出荷時にICに書き込まれている)</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">float</span> omega_vec[]         = {0.0, 0.0, 0.0};   <span class="comment">//角速度５ベクトル (x,y,z)[rad]</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">float</span> acc_vec[]           = {0.0, 0.0, 0.0};   <span class="comment">//加速度ベクトル (x,y,z) [1G]</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">float</span> mag_vec[]           = {0.0, 0.0, 0.0};   <span class="comment">//地磁気ベクトル (x,y,z) [uT]</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">float</span> temperature         = 0.0;               <span class="comment">//MPU9150の温度[°C]</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">float</span> omega_LPF_vec[] = {0.0, 0.0, 0.0};       <span class="comment">//軽めのローパスフィルタをかけた値</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">float</span> acc_LPF_vec[]   = {0.0, 0.0, 0.0};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">float</span> mag_LPF_vec[]   = {0.0, 0.0, 0.0};</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">float</span> omega_str_LPF_vec[] = {0.0, 0.0, 0.0};   <span class="comment">//強めのローパスフィルタをかけた値</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">float</span> acc_str_LPF_vec[]   = {0.0, 0.0, 0.0};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">float</span> mag_str_LPF_vec[]   = {0.0, 0.0, 0.0};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">float</span> omega_ref_vec[]     = {0.0,0.0,0.0};     <span class="comment">//静止時のジャイロリファレンス</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">   45</a></span>&#160;<span class="keyword">volatile</span> <span class="keywordtype">float</span> <a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a>     = 0.8;      <span class="comment">//ローパスフィルタのゲイン</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">   46</a></span>&#160;<span class="keyword">volatile</span> <span class="keywordtype">float</span> <a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a> = 0.1;     <span class="comment">//強めのローパスフィルタのゲイン</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a1677603057892c0a4d06aab9f1f7d74e">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a1677603057892c0a4d06aab9f1f7d74e">initMPU6050</a> (<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="mpu9150_8c.html#a6227a3e6005b75f07040af82dc4b8a6e">I2CWriteLength</a> = 3;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="mpu9150_8c.html#a99aaa16c53f267f8862d444f522d763c">I2CReadLength</a> = 0;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[0] = <a class="code" href="mpu9150_8c.html#a19a331826b29abf912c345eb357d8e96">MPU6050_W</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[1] = 0x6B; <span class="comment">//Address start MPU9150</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[2] = 0x00;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="i2c_8h.html#a0036f04c55d6d2118405ca42632bdbd4">I2CEngine</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="_system_tick_timer_8h.html#a4c0b76146789e1b5c90418596dd38895">wait1usec</a>(100);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="mpu9150_8c.html#a6227a3e6005b75f07040af82dc4b8a6e">I2CWriteLength</a> = 3;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="mpu9150_8c.html#a99aaa16c53f267f8862d444f522d763c">I2CReadLength</a> = 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[0] = <a class="code" href="mpu9150_8c.html#a19a331826b29abf912c345eb357d8e96">MPU6050_W</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[1] = 0x37; <span class="comment">//Address auxiliary I2C</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[2] = 0x02;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="i2c_8h.html#a0036f04c55d6d2118405ca42632bdbd4">I2CEngine</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="_system_tick_timer_8h.html#a4c0b76146789e1b5c90418596dd38895">wait1usec</a>(100);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="mpu9150_8c.html#a6227a3e6005b75f07040af82dc4b8a6e">I2CWriteLength</a> = 3;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="mpu9150_8c.html#a99aaa16c53f267f8862d444f522d763c">I2CReadLength</a> = 0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[0] = <a class="code" href="mpu9150_8c.html#a19a331826b29abf912c345eb357d8e96">MPU6050_W</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[1] = 0x1A; <span class="comment">//Address digital low pass filter</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[2] = 0x02; <span class="comment">//100Hz</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="i2c_8h.html#a0036f04c55d6d2118405ca42632bdbd4">I2CEngine</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="_system_tick_timer_8h.html#a4c0b76146789e1b5c90418596dd38895">wait1usec</a>(100);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="mpu9150_8c.html#a6227a3e6005b75f07040af82dc4b8a6e">I2CWriteLength</a> = 3;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="mpu9150_8c.html#a99aaa16c53f267f8862d444f522d763c">I2CReadLength</a> = 0;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[0] = <a class="code" href="mpu9150_8c.html#a19a331826b29abf912c345eb357d8e96">MPU6050_W</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[1] = 0x1B; <span class="comment">//range ang</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[2] = 0x18; <span class="comment">//2000deg/s</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="i2c_8h.html#a0036f04c55d6d2118405ca42632bdbd4">I2CEngine</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="_system_tick_timer_8h.html#a4c0b76146789e1b5c90418596dd38895">wait1usec</a>(100);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="mpu9150_8c.html#a6227a3e6005b75f07040af82dc4b8a6e">I2CWriteLength</a> = 3;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="mpu9150_8c.html#a99aaa16c53f267f8862d444f522d763c">I2CReadLength</a> = 0;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[0] = <a class="code" href="mpu9150_8c.html#a19a331826b29abf912c345eb357d8e96">MPU6050_W</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[1] = 0x1C; <span class="comment">//range acc</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[2] = 0x18; <span class="comment">//16g</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="i2c_8h.html#a0036f04c55d6d2118405ca42632bdbd4">I2CEngine</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a7bca934db8415705d0eb8b49d5a4a9fa">  106</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a7bca934db8415705d0eb8b49d5a4a9fa">initAK8975</a> (<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">volatile</span> <a class="code" href="type_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> i;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="mpu9150_8c.html#a6227a3e6005b75f07040af82dc4b8a6e">I2CWriteLength</a> = 2;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="mpu9150_8c.html#a99aaa16c53f267f8862d444f522d763c">I2CReadLength</a> = 3;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[0] = <a class="code" href="mpu9150_8c.html#a72fca55dfd1cf66688e3006233a94b6b">AK8975_W</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[1] = 0x10; <span class="comment">//Address 3byte (adjust MagXYZ)</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[2] = <a class="code" href="mpu9150_8c.html#a95a29eeeed3146f020893a332c448c64">AK8975_R</a>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="i2c_8h.html#a0036f04c55d6d2118405ca42632bdbd4">I2CEngine</a>();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">for</span>(i = 0;i &lt; 3;i ++)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        Asa[i] = <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[i];</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#ac9791105abea50829a894b6ea6c7a2b5">  147</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#ac9791105abea50829a894b6ea6c7a2b5">getDataFromMPU6050</a> (<a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *dest_array )</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keyword">volatile</span> <a class="code" href="type_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> i;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keyword">volatile</span> <a class="code" href="type_8h.html#ab1967d8591af1a4e48c37fd2b0f184d0">int32_t</a> acc[3];</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">volatile</span> <a class="code" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a> acc_temp[3]; <span class="comment">//加速度の値計算の中間値</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">volatile</span> <a class="code" href="type_8h.html#ab1967d8591af1a4e48c37fd2b0f184d0">int32_t</a> omega[3];</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">volatile</span> <a class="code" href="type_8h.html#ab1967d8591af1a4e48c37fd2b0f184d0">int32_t</a> temp_;  <span class="comment">//温度</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="mpu9150_8c.html#a6227a3e6005b75f07040af82dc4b8a6e">I2CWriteLength</a> = 2;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="mpu9150_8c.html#a99aaa16c53f267f8862d444f522d763c">I2CReadLength</a> = 14;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[0] = <a class="code" href="mpu9150_8c.html#a19a331826b29abf912c345eb357d8e96">MPU6050_W</a>;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[1] = 0x3B; <span class="comment">//Address 14byte (AccXYZ + GyroXYZ + temp)</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[2] = <a class="code" href="mpu9150_8c.html#a3eb8370c8028ea2bc2bd200b01890ab8">MPU6050_R</a>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <a class="code" href="i2c_8h.html#a0036f04c55d6d2118405ca42632bdbd4">I2CEngine</a>();</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    acc_temp[0] = (<a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[0]&lt;&lt;8) + <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[1];</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    acc_temp[1] = (<a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[2]&lt;&lt;8) + <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[3];</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    acc_temp[2] = (<a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[4]&lt;&lt;8) + <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[5];</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    acc_temp[0] = (~acc_temp[0]) + 1;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    acc_temp[1] = (~acc_temp[1]) + 1;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    acc_temp[2] = (~acc_temp[2]) + 1;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="comment">//Acc</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    dest_array[0]  =  0x00ff &amp; acc_temp[0];</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    dest_array[1]  = (0xff00 &amp; acc_temp[0])&gt;&gt;8;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    dest_array[2]  =  0x00ff &amp; acc_temp[1];</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    dest_array[3]  = (0xff00 &amp; acc_temp[1])&gt;&gt;8;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    dest_array[4]  =  0x00ff &amp; acc_temp[2];</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    dest_array[5]  = (0xff00 &amp; acc_temp[2])&gt;&gt;8;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="comment">//temparature</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    dest_array[6]  = <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[7];</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    dest_array[7]  = <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[6];</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="comment">//gyro</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    dest_array[8]  = <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[9];</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    dest_array[9]  = <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[8];</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    dest_array[10] = <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[11];</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    dest_array[11] = <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[10];</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    dest_array[12] = <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[13];</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    dest_array[13] = <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[12];</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="i2c_8h.html#aeca034f67218340ecb2261a22c2f3dcd">BUFSIZE</a>; i++ ) <span class="comment">//clear I2CSlaveBuffer</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    {</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[i] = 0x00;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    }</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="comment">//センサ値を物理量に変換</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    acc[0]   = dest_array[0] + (dest_array[1]&lt;&lt;8);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">if</span>(acc[0] &gt;= 32767) acc[0] -= 65536;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    acc_vec[0]  = ((float)acc[0])/2048.0;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    acc[1]   = dest_array[2] + (dest_array[3]&lt;&lt;8);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">if</span>(acc[1] &gt;= 32767) acc[1] -= 65536;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    acc_vec[1]  = ((float)acc[1])/2048.0;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    acc[2]   = dest_array[4] + (dest_array[5]&lt;&lt;8);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">if</span>(acc[2] &gt;= 32767) acc[2] -= 65536;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    acc_vec[2]  = ((float)acc[2])/2048.0;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    omega[0]   = dest_array[8] + (dest_array[9]&lt;&lt;8);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">if</span>(omega[0] &gt;= 32767) omega[0] -= 65536;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    omega_vec[0]  = <a class="code" href="tiny_math_function_8h.html#aa3616a5af1a14b0a5a1b2f542066ae45">DEG2RAD</a>( ((omega[0]) - (<a class="code" href="type_8h.html#ab1967d8591af1a4e48c37fd2b0f184d0">int32_t</a>)(omega_ref_vec[0] + 0.5 )  )/16.4 );</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    omega[1]   = dest_array[10] + (dest_array[11]&lt;&lt;8);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordflow">if</span>(omega[1] &gt;= 32767) omega[1] -= 65536;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    omega_vec[1]  = <a class="code" href="tiny_math_function_8h.html#aa3616a5af1a14b0a5a1b2f542066ae45">DEG2RAD</a>( ((omega[1]) - (<a class="code" href="type_8h.html#ab1967d8591af1a4e48c37fd2b0f184d0">int32_t</a>)(omega_ref_vec[1] + 0.5 ) )/16.4 );</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    omega[2]   = dest_array[12] + (dest_array[13]&lt;&lt;8);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">if</span>(omega[2] &gt;= 32767) omega[2] -= 65536;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    omega_vec[2]  = <a class="code" href="tiny_math_function_8h.html#aa3616a5af1a14b0a5a1b2f542066ae45">DEG2RAD</a>( ((omega[2]) - (<a class="code" href="type_8h.html#ab1967d8591af1a4e48c37fd2b0f184d0">int32_t</a>)(omega_ref_vec[2] + 0.5 ) )/16.4 );</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    temp_  = dest_array[6] + (dest_array[7]&lt;&lt;8);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">if</span>(temp_ &gt;= 32767) temp_ -= 65536;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    temperature = (float)temp_/340.0 + 35.0;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">//加速度センサ値をLPFにかける</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    acc_LPF_vec[0]     = <a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a> * acc_LPF_vec[0] + (1.0-<a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a>) * acc_vec[0];</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    acc_LPF_vec[1]     = <a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a> * acc_LPF_vec[1] + (1.0-<a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a>) * acc_vec[1];</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    acc_LPF_vec[2]     = <a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a> * acc_LPF_vec[2] + (1.0-<a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a>) * acc_vec[2];</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="comment">//角速度をLPFにかける</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    omega_LPF_vec[0]    = <a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a> * omega_LPF_vec[0] + (1.0-<a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a>) * omega_vec[0];</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    omega_LPF_vec[1]    = <a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a> * omega_LPF_vec[1] + (1.0-<a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a>) * omega_vec[1];</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    omega_LPF_vec[2]    = <a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a> * omega_LPF_vec[2] + (1.0-<a class="code" href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a>) * omega_vec[2];</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="comment">//加速度センサ値をLPFにかける</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    acc_str_LPF_vec[0]     = <a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a> * acc_LPF_vec[0] + (1.0-<a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a>) * acc_vec[0];</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    acc_str_LPF_vec[1]     = <a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a> * acc_LPF_vec[1] + (1.0-<a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a>) * acc_vec[1];</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    acc_str_LPF_vec[2]     = <a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a> * acc_LPF_vec[2] + (1.0-<a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a>) * acc_vec[2];</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="comment">//角速度をLPFにかける</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    omega_str_LPF_vec[0]   = <a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a> * omega_str_LPF_vec[0] + (1.0-<a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a>) * omega_vec[0];</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    omega_str_LPF_vec[1]   = <a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a> * omega_str_LPF_vec[1] + (1.0-<a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a>) * omega_vec[1];</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    omega_str_LPF_vec[2]   = <a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a> * omega_str_LPF_vec[2] + (1.0-<a class="code" href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a>) * omega_vec[2];</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
+<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#aee8131903d627b8eab32a8fd2bda2203">  261</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#aee8131903d627b8eab32a8fd2bda2203">getDataFromAK8975</a> (<a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *dest_array)</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;{</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keyword">volatile</span> <a class="code" href="type_8h.html#ab1967d8591af1a4e48c37fd2b0f184d0">int32_t</a> mag[3];</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keyword">volatile</span> <a class="code" href="type_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> i;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">volatile</span> <a class="code" href="type_8h.html#aa5ad9bec438b7cf669efb1ca064e79f5">int16_t</a> Mag[3];</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <a class="code" href="mpu9150_8c.html#a6227a3e6005b75f07040af82dc4b8a6e">I2CWriteLength</a> = 2;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <a class="code" href="mpu9150_8c.html#a99aaa16c53f267f8862d444f522d763c">I2CReadLength</a> = 6;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[0] = <a class="code" href="mpu9150_8c.html#a72fca55dfd1cf66688e3006233a94b6b">AK8975_W</a>;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[1] = 0x03; <span class="comment">//Address 6byte (MagXYZ)</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[2] = <a class="code" href="mpu9150_8c.html#a95a29eeeed3146f020893a332c448c64">AK8975_R</a>;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <a class="code" href="i2c_8h.html#a0036f04c55d6d2118405ca42632bdbd4">I2CEngine</a>();</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">for</span> ( i = 0; i &lt; 3; i++ )</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    {</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        Mag[i] = (<a class="code" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>)<a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[i&lt;&lt;1] | (((<a class="code" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>)<a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[(i&lt;&lt;1)+1])&lt;&lt;8);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        Mag[i] = Mag[i]*(<a class="code" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>)((((<a class="code" href="type_8h.html#aef44329758059c91c76d334e8fc09700">int8_t</a>)Asa[i] - 128)/256) + 1);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    }</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    dest_array[0] = (<a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)Mag[1];</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    dest_array[1] = (<a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)(Mag[1]&gt;&gt;8);</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    dest_array[2] = (<a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)Mag[0];</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    dest_array[3] = (<a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)(Mag[0]&gt;&gt;8);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    Mag[2] = (~Mag[2]) + 1; <span class="comment">//地磁気センサのZ軸の取り方を下向きから上向きに変更</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    dest_array[4] = (<a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)Mag[2];</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    dest_array[5] = (<a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)(Mag[2]&gt;&gt;8);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <a class="code" href="mpu9150_8c.html#a6227a3e6005b75f07040af82dc4b8a6e">I2CWriteLength</a> = 3;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <a class="code" href="mpu9150_8c.html#a99aaa16c53f267f8862d444f522d763c">I2CReadLength</a> = 0;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[0] = <a class="code" href="mpu9150_8c.html#a72fca55dfd1cf66688e3006233a94b6b">AK8975_W</a>;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[1] = 0x0A; <span class="comment">//Address start MagXYZ ADC (need 7.2ms)</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <a class="code" href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a>[2] = 0x01;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <a class="code" href="i2c_8h.html#a0036f04c55d6d2118405ca42632bdbd4">I2CEngine</a>();</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="i2c_8h.html#aeca034f67218340ecb2261a22c2f3dcd">BUFSIZE</a>; i++ ) <span class="comment">//clear I2CSlaveBuffer</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    {</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <a class="code" href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a>[i] = 0x00;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    }</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="comment">//センサ値を地磁気ベクトルに変換</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordflow">for</span>( i=0;i&lt;3;i++)</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    {</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        mag[i]   = dest_array[i] + (dest_array[i+1]&lt;&lt;8);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keywordflow">if</span>(mag[i] &gt;= 32767) mag[i] -= 65535;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        mag_vec[i]  = (float)mag[i]*0.3;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    }</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;}</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
+<div class="line"><a name="l00319"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#aa434e4a617768a7869cbaea0355911c0">  319</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#aa434e4a617768a7869cbaea0355911c0">getOmega</a>(<span class="keywordtype">float</span> *vec)</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;{</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> i;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;3;i++) vec[i] = omega_vec[i];</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;};</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
+<div class="line"><a name="l00331"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a83c4db4d92572802f8c5b365abc67d5f">  331</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a83c4db4d92572802f8c5b365abc67d5f">getMag</a>(<span class="keywordtype">float</span> *vec)</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;{</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> i;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;3;i++) vec[i] = mag_vec[i];</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;};</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;</div>
+<div class="line"><a name="l00343"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#ad89d8ce61d6a3d9d3ee69d87c9cf3ad9">  343</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#ad89d8ce61d6a3d9d3ee69d87c9cf3ad9">getAcc</a>(<span class="keywordtype">float</span> *vec)</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;{</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> i;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;3;i++) vec[i] = acc_vec[i];</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;};</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
+<div class="line"><a name="l00355"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a9f254dc0089216a5fcb41c2b5775aef3">  355</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a9f254dc0089216a5fcb41c2b5775aef3">getTemp</a>(<span class="keywordtype">float</span> *temp)</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;{</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    *temp = temperature;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;}</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;</div>
+<div class="line"><a name="l00366"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a01202d1c9ed8b04ddfd493d8e41e6379">  366</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a01202d1c9ed8b04ddfd493d8e41e6379">initOmegaRef</a>()</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;{</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <a class="code" href="type_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> i = 0;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> data_array[14];</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="preprocessor">    #define NUM_REF (100)</span></div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <a class="code" href="type_8h.html#ab1967d8591af1a4e48c37fd2b0f184d0">int32_t</a> omega_x[<a class="code" href="mpu9150_8c.html#aec7e918da8aa9eb26979868776b97746">NUM_REF</a>];</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <a class="code" href="type_8h.html#ab1967d8591af1a4e48c37fd2b0f184d0">int32_t</a> omega_y[<a class="code" href="mpu9150_8c.html#aec7e918da8aa9eb26979868776b97746">NUM_REF</a>];</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <a class="code" href="type_8h.html#ab1967d8591af1a4e48c37fd2b0f184d0">int32_t</a> omega_z[<a class="code" href="mpu9150_8c.html#aec7e918da8aa9eb26979868776b97746">NUM_REF</a>];</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keywordtype">float</span> omega_x_sum = 0.0;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="keywordtype">float</span> omega_y_sum = 0.0;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keywordtype">float</span> omega_z_sum = 0.0;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;3;i++)</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    {</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        omega_ref_vec[i] = 0.0;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    }</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;<a class="code" href="mpu9150_8c.html#aec7e918da8aa9eb26979868776b97746">NUM_REF</a>;i++)</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    {</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <a class="code" href="mpu9150_8c.html#ac9791105abea50829a894b6ea6c7a2b5">getDataFromMPU6050</a>(data_array);</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        omega_x[i]   = data_array[8] + (data_array[9]&lt;&lt;8);</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="keywordflow">if</span>(omega_x[i] &gt;= 32767) omega_x[i] -= 65536;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        omega_y[i]   = data_array[10] + (data_array[11]&lt;&lt;8);</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordflow">if</span>(omega_y[i] &gt;= 32767) omega_y[i] -= 65536;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        omega_z[i]   = data_array[12] + (data_array[13]&lt;&lt;8);</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        <span class="keywordflow">if</span>(omega_z[i] &gt;= 32767) omega_z[i] -= 65536;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <a class="code" href="_system_tick_timer_8h.html#a4c0b76146789e1b5c90418596dd38895">wait1usec</a>(10000);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    }</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <a class="code" href="tiny_math_function_8h.html#aa9043655ce2582b275428e9230738a37">quickSort</a>(omega_x,0 ,NUM_REF -1);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <a class="code" href="tiny_math_function_8h.html#aa9043655ce2582b275428e9230738a37">quickSort</a>(omega_y,0 ,NUM_REF -1);</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <a class="code" href="tiny_math_function_8h.html#aa9043655ce2582b275428e9230738a37">quickSort</a>(omega_z,0 ,NUM_REF -1);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keywordflow">for</span>(i=NUM_REF/4;i&lt;(NUM_REF*3/4 +1) ;i++)</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    {</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        omega_x_sum += (float)(omega_x[i]);</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        omega_y_sum += (float)(omega_y[i]);</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        omega_z_sum += (float)(omega_z[i]);</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    }</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    omega_ref_vec[0] = omega_x_sum/(float)NUM_REF *2.0;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    omega_ref_vec[1] = omega_y_sum/(float)NUM_REF *2.0;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    omega_ref_vec[2] = omega_z_sum/(float)NUM_REF *2.0;</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;}</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;</div>
+<div class="line"><a name="l00420"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a66d79adf139b9f962f2760494efeab53">  420</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a66d79adf139b9f962f2760494efeab53">getOmegaLPF</a>(<span class="keywordtype">float</span> *vec)</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;{</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> i;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;3;i++) vec[i] = omega_LPF_vec[i];</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;};</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;</div>
+<div class="line"><a name="l00432"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a1067d7d66e398f17dd2b94003ed0354c">  432</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a1067d7d66e398f17dd2b94003ed0354c">getMagLPF</a>(<span class="keywordtype">float</span> *vec)</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;{</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> i;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;3;i++) vec[i] = mag_LPF_vec[i];</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;};</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;</div>
+<div class="line"><a name="l00445"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a8473b460bd6d74ce27ad309188fbd60b">  445</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a8473b460bd6d74ce27ad309188fbd60b">getAccLPF</a>(<span class="keywordtype">float</span> *vec)</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;{</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> i;</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;3;i++) vec[i] = acc_LPF_vec[i];</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;};</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;</div>
+<div class="line"><a name="l00457"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a18aaadf624297a7a1dd9969216e4bde7">  457</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a18aaadf624297a7a1dd9969216e4bde7">getOmegaStrLPF</a>(<span class="keywordtype">float</span> *vec)</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;{</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> i;</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;3;i++) vec[i] = omega_LPF_vec[i];</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;};</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;</div>
+<div class="line"><a name="l00469"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#ae56215847c9090c40ca9de38eb8e8557">  469</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#ae56215847c9090c40ca9de38eb8e8557">getMagStrLPF</a>(<span class="keywordtype">float</span> *vec)</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;{</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> i;</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;3;i++) vec[i] = mag_LPF_vec[i];</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;};</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;</div>
+<div class="line"><a name="l00481"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a3f5ae8a0d1e196d3e86b5cfa2c399a31">  481</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a3f5ae8a0d1e196d3e86b5cfa2c399a31">getAccStrLPF</a>(<span class="keywordtype">float</span> *vec)</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;{</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> i;</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;3;i++) vec[i] = acc_LPF_vec[i];</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;};</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;</div>
+<div class="line"><a name="l00493"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#ab9d8ae04b09bd47f6a25bca5616734d7">  493</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="mpu9150_8c.html#ab9d8ae04b09bd47f6a25bca5616734d7">getOmegaRef</a>(<span class="keywordtype">float</span> *vec)</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;{</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    <a class="code" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> i;</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;3;i++) vec[i] = omega_ref_vec[i];</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;}</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;</div>
+<div class="line"><a name="l00505"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#af71318ab8b9b65fb1280decc66abd76f">  505</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#af71318ab8b9b65fb1280decc66abd76f">setOmegaRef_x</a>(<span class="keywordtype">float</span> ref_x)</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;{</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    omega_ref_vec[0] = ref_x;</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;}</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;</div>
+<div class="line"><a name="l00516"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a5bffd52e6724ac4c4de90423eca89ed5">  516</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a5bffd52e6724ac4c4de90423eca89ed5">setOmegaRef_y</a>(<span class="keywordtype">float</span> ref_y)</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;{</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    omega_ref_vec[1] = ref_y;</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;}</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;</div>
+<div class="line"><a name="l00527"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a40303c6f4989d2811d67c243c0f91deb">  527</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a40303c6f4989d2811d67c243c0f91deb">setOmegaRef_z</a>(<span class="keywordtype">float</span> ref_z)</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;{</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    omega_ref_vec[2] = ref_z;</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;}</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;</div>
+<div class="line"><a name="l00538"></a><span class="lineno"><a class="line" href="mpu9150_8c.html#a7ab84b45299eb16f58a80f05b50326b1">  538</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpu9150_8c.html#a7ab84b45299eb16f58a80f05b50326b1">debugMPU9150</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;{</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <a class="code" href="debug_8h.html#acb52286c12863b103cc835c3d8310773">myPrintfUART</a>(<span class="stringliteral">&quot;########debug MPU9150#######\n&quot;</span>);</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    <a class="code" href="debug_8h.html#acb52286c12863b103cc835c3d8310773">myPrintfUART</a>(<span class="stringliteral">&quot;acc  : %f, %f, %f  (x,y,z)[rad] \n&quot;</span>,acc_vec[0], acc_vec[1],acc_vec[2]);</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    <a class="code" href="debug_8h.html#acb52286c12863b103cc835c3d8310773">myPrintfUART</a>(<span class="stringliteral">&quot;omega: %f, %f, %f  (x,y,z) [1G] \n&quot;</span>,omega_vec[0], omega_vec[1],omega_vec[2]);</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    <a class="code" href="debug_8h.html#acb52286c12863b103cc835c3d8310773">myPrintfUART</a>(<span class="stringliteral">&quot;mag  : %f, %f, %f  (x,y,z) [uT] \n&quot;</span>,mag_vec[0], mag_vec[1],mag_vec[2]);</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    <a class="code" href="debug_8h.html#acb52286c12863b103cc835c3d8310773">myPrintfUART</a>(<span class="stringliteral">&quot;temp : %f                  [°C] \n&quot;</span>, temperature);</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;}</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;</div>
+<div class="ttc" id="mpu9150_8c_html_a7ab84b45299eb16f58a80f05b50326b1"><div class="ttname"><a href="mpu9150_8c.html#a7ab84b45299eb16f58a80f05b50326b1">debugMPU9150</a></div><div class="ttdeci">void debugMPU9150(void)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00538">mpu9150.c:538</a></div></div>
+<div class="ttc" id="uart_8h_html"><div class="ttname"><a href="uart_8h.html">uart.h</a></div></div>
+<div class="ttc" id="i2c_8h_html_a0036f04c55d6d2118405ca42632bdbd4"><div class="ttname"><a href="i2c_8h.html#a0036f04c55d6d2118405ca42632bdbd4">I2CEngine</a></div><div class="ttdeci">uint32_t I2CEngine(void)</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00282">i2c.c:282</a></div></div>
+<div class="ttc" id="debug_8h_html"><div class="ttname"><a href="debug_8h.html">debug.h</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a99aaa16c53f267f8862d444f522d763c"><div class="ttname"><a href="mpu9150_8c.html#a99aaa16c53f267f8862d444f522d763c">I2CReadLength</a></div><div class="ttdeci">volatile uint32_t I2CReadLength</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00023">i2c.c:23</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_ae56215847c9090c40ca9de38eb8e8557"><div class="ttname"><a href="mpu9150_8c.html#ae56215847c9090c40ca9de38eb8e8557">getMagStrLPF</a></div><div class="ttdeci">void getMagStrLPF(float *vec)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00469">mpu9150.c:469</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_ac9791105abea50829a894b6ea6c7a2b5"><div class="ttname"><a href="mpu9150_8c.html#ac9791105abea50829a894b6ea6c7a2b5">getDataFromMPU6050</a></div><div class="ttdeci">void getDataFromMPU6050(uint8_t *dest_array)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00147">mpu9150.c:147</a></div></div>
+<div class="ttc" id="type_8h_html_ab1967d8591af1a4e48c37fd2b0f184d0"><div class="ttname"><a href="type_8h.html#ab1967d8591af1a4e48c37fd2b0f184d0">int32_t</a></div><div class="ttdeci">signed int int32_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00023">type.h:23</a></div></div>
+<div class="ttc" id="type_8h_html_aef44329758059c91c76d334e8fc09700"><div class="ttname"><a href="type_8h.html#aef44329758059c91c76d334e8fc09700">int8_t</a></div><div class="ttdeci">signed char int8_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00021">type.h:21</a></div></div>
+<div class="ttc" id="debug_8h_html_acb52286c12863b103cc835c3d8310773"><div class="ttname"><a href="debug_8h.html#acb52286c12863b103cc835c3d8310773">myPrintfUART</a></div><div class="ttdeci">int myPrintfUART(const char *fmt,...)</div><div class="ttdef"><b>Definition:</b> <a href="debug_8c_source.html#l00042">debug.c:42</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a19a331826b29abf912c345eb357d8e96"><div class="ttname"><a href="mpu9150_8c.html#a19a331826b29abf912c345eb357d8e96">MPU6050_W</a></div><div class="ttdeci">#define MPU6050_W</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00023">mpu9150.c:23</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a8d36144f2477482e231da2b8a14b6380"><div class="ttname"><a href="mpu9150_8c.html#a8d36144f2477482e231da2b8a14b6380">I2CSlaveBuffer</a></div><div class="ttdeci">volatile uint8_t I2CSlaveBuffer[BUFSIZE]</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00021">i2c.c:21</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a95a29eeeed3146f020893a332c448c64"><div class="ttname"><a href="mpu9150_8c.html#a95a29eeeed3146f020893a332c448c64">AK8975_R</a></div><div class="ttdeci">#define AK8975_R</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00026">mpu9150.c:26</a></div></div>
+<div class="ttc" id="type_8h_html_aba7bc1797add20fe3efdf37ced1182c5"><div class="ttname"><a href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00027">type.h:27</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a40303c6f4989d2811d67c243c0f91deb"><div class="ttname"><a href="mpu9150_8c.html#a40303c6f4989d2811d67c243c0f91deb">setOmegaRef_z</a></div><div class="ttdeci">void setOmegaRef_z(float ref_z)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00527">mpu9150.c:527</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a8473b460bd6d74ce27ad309188fbd60b"><div class="ttname"><a href="mpu9150_8c.html#a8473b460bd6d74ce27ad309188fbd60b">getAccLPF</a></div><div class="ttdeci">void getAccLPF(float *vec)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00445">mpu9150.c:445</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a1677603057892c0a4d06aab9f1f7d74e"><div class="ttname"><a href="mpu9150_8c.html#a1677603057892c0a4d06aab9f1f7d74e">initMPU6050</a></div><div class="ttdeci">void initMPU6050(void)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00054">mpu9150.c:54</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a3f5ae8a0d1e196d3e86b5cfa2c399a31"><div class="ttname"><a href="mpu9150_8c.html#a3f5ae8a0d1e196d3e86b5cfa2c399a31">getAccStrLPF</a></div><div class="ttdeci">void getAccStrLPF(float *vec)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00481">mpu9150.c:481</a></div></div>
+<div class="ttc" id="tiny_math_function_8h_html"><div class="ttname"><a href="tiny_math_function_8h.html">tinyMathFunction.h</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a1067d7d66e398f17dd2b94003ed0354c"><div class="ttname"><a href="mpu9150_8c.html#a1067d7d66e398f17dd2b94003ed0354c">getMagLPF</a></div><div class="ttdeci">void getMagLPF(float *vec)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00432">mpu9150.c:432</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a01202d1c9ed8b04ddfd493d8e41e6379"><div class="ttname"><a href="mpu9150_8c.html#a01202d1c9ed8b04ddfd493d8e41e6379">initOmegaRef</a></div><div class="ttdeci">void initOmegaRef()</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00366">mpu9150.c:366</a></div></div>
+<div class="ttc" id="tiny_math_function_8h_html_aa9043655ce2582b275428e9230738a37"><div class="ttname"><a href="tiny_math_function_8h.html#aa9043655ce2582b275428e9230738a37">quickSort</a></div><div class="ttdeci">void quickSort(int numbers[], int left, int right)</div><div class="ttdef"><b>Definition:</b> <a href="tiny_math_functions_8c_source.html#l00079">tinyMathFunctions.c:79</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a3eb8370c8028ea2bc2bd200b01890ab8"><div class="ttname"><a href="mpu9150_8c.html#a3eb8370c8028ea2bc2bd200b01890ab8">MPU6050_R</a></div><div class="ttdeci">#define MPU6050_R</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00024">mpu9150.c:24</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a66d79adf139b9f962f2760494efeab53"><div class="ttname"><a href="mpu9150_8c.html#a66d79adf139b9f962f2760494efeab53">getOmegaLPF</a></div><div class="ttdeci">void getOmegaLPF(float *vec)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00420">mpu9150.c:420</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a7bca934db8415705d0eb8b49d5a4a9fa"><div class="ttname"><a href="mpu9150_8c.html#a7bca934db8415705d0eb8b49d5a4a9fa">initAK8975</a></div><div class="ttdeci">void initAK8975(void)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00106">mpu9150.c:106</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a5bffd52e6724ac4c4de90423eca89ed5"><div class="ttname"><a href="mpu9150_8c.html#a5bffd52e6724ac4c4de90423eca89ed5">setOmegaRef_y</a></div><div class="ttdeci">void setOmegaRef_y(float ref_y)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00516">mpu9150.c:516</a></div></div>
+<div class="ttc" id="_system_tick_timer_8h_html_a4c0b76146789e1b5c90418596dd38895"><div class="ttname"><a href="_system_tick_timer_8h.html#a4c0b76146789e1b5c90418596dd38895">wait1usec</a></div><div class="ttdeci">void wait1usec(uint32_t wait_count)</div><div class="ttdef"><b>Definition:</b> <a href="_system_tick_timer_8c_source.html#l00040">SystemTickTimer.c:40</a></div></div>
+<div class="ttc" id="mpu9150_8h_html"><div class="ttname"><a href="mpu9150_8h.html">mpu9150.h</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_aee8131903d627b8eab32a8fd2bda2203"><div class="ttname"><a href="mpu9150_8c.html#aee8131903d627b8eab32a8fd2bda2203">getDataFromAK8975</a></div><div class="ttdeci">void getDataFromAK8975(uint8_t *dest_array)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00261">mpu9150.c:261</a></div></div>
+<div class="ttc" id="type_8h_html_aa5ad9bec438b7cf669efb1ca064e79f5"><div class="ttname"><a href="type_8h.html#aa5ad9bec438b7cf669efb1ca064e79f5">int16_t</a></div><div class="ttdeci">signed short int int16_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00022">type.h:22</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_ad89d8ce61d6a3d9d3ee69d87c9cf3ad9"><div class="ttname"><a href="mpu9150_8c.html#ad89d8ce61d6a3d9d3ee69d87c9cf3ad9">getAcc</a></div><div class="ttdeci">void getAcc(float *vec)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00343">mpu9150.c:343</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a6227a3e6005b75f07040af82dc4b8a6e"><div class="ttname"><a href="mpu9150_8c.html#a6227a3e6005b75f07040af82dc4b8a6e">I2CWriteLength</a></div><div class="ttdeci">volatile uint32_t I2CWriteLength</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00024">i2c.c:24</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a18aaadf624297a7a1dd9969216e4bde7"><div class="ttname"><a href="mpu9150_8c.html#a18aaadf624297a7a1dd9969216e4bde7">getOmegaStrLPF</a></div><div class="ttdeci">void getOmegaStrLPF(float *vec)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00457">mpu9150.c:457</a></div></div>
+<div class="ttc" id="type_8h_html_adf4d876453337156dde61095e1f20223"><div class="ttname"><a href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a></div><div class="ttdeci">unsigned short int uint16_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00028">type.h:28</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_aa434e4a617768a7869cbaea0355911c0"><div class="ttname"><a href="mpu9150_8c.html#aa434e4a617768a7869cbaea0355911c0">getOmega</a></div><div class="ttdeci">void getOmega(float *vec)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00319">mpu9150.c:319</a></div></div>
+<div class="ttc" id="i2c_8h_html_aeca034f67218340ecb2261a22c2f3dcd"><div class="ttname"><a href="i2c_8h.html#aeca034f67218340ecb2261a22c2f3dcd">BUFSIZE</a></div><div class="ttdeci">#define BUFSIZE</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00016">i2c.h:16</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a766e99196841c51b7560453d06423b6a"><div class="ttname"><a href="mpu9150_8c.html#a766e99196841c51b7560453d06423b6a">I2CMasterBuffer</a></div><div class="ttdeci">volatile uint8_t I2CMasterBuffer[BUFSIZE]</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00020">i2c.c:20</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a83c4db4d92572802f8c5b365abc67d5f"><div class="ttname"><a href="mpu9150_8c.html#a83c4db4d92572802f8c5b365abc67d5f">getMag</a></div><div class="ttdeci">void getMag(float *vec)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00331">mpu9150.c:331</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_aec7e918da8aa9eb26979868776b97746"><div class="ttname"><a href="mpu9150_8c.html#aec7e918da8aa9eb26979868776b97746">NUM_REF</a></div><div class="ttdeci">#define NUM_REF</div></div>
+<div class="ttc" id="tiny_math_function_8h_html_aa3616a5af1a14b0a5a1b2f542066ae45"><div class="ttname"><a href="tiny_math_function_8h.html#aa3616a5af1a14b0a5a1b2f542066ae45">DEG2RAD</a></div><div class="ttdeci">#define DEG2RAD(deg)</div><div class="ttdef"><b>Definition:</b> <a href="tiny_math_function_8h_source.html#l00021">tinyMathFunction.h:21</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_af14286333f51c15766ab0ce06a29b503"><div class="ttname"><a href="mpu9150_8c.html#af14286333f51c15766ab0ce06a29b503">gain_str_LPF</a></div><div class="ttdeci">volatile float gain_str_LPF</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00046">mpu9150.c:46</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a9f254dc0089216a5fcb41c2b5775aef3"><div class="ttname"><a href="mpu9150_8c.html#a9f254dc0089216a5fcb41c2b5775aef3">getTemp</a></div><div class="ttdeci">void getTemp(float *temp)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00355">mpu9150.c:355</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_af71318ab8b9b65fb1280decc66abd76f"><div class="ttname"><a href="mpu9150_8c.html#af71318ab8b9b65fb1280decc66abd76f">setOmegaRef_x</a></div><div class="ttdeci">void setOmegaRef_x(float ref_x)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00505">mpu9150.c:505</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a78dfe60875bfa39e7a5a1922788c8887"><div class="ttname"><a href="mpu9150_8c.html#a78dfe60875bfa39e7a5a1922788c8887">gain_LPF</a></div><div class="ttdeci">volatile float gain_LPF</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00045">mpu9150.c:45</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_a72fca55dfd1cf66688e3006233a94b6b"><div class="ttname"><a href="mpu9150_8c.html#a72fca55dfd1cf66688e3006233a94b6b">AK8975_W</a></div><div class="ttdeci">#define AK8975_W</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00025">mpu9150.c:25</a></div></div>
+<div class="ttc" id="mpu9150_8c_html_ab9d8ae04b09bd47f6a25bca5616734d7"><div class="ttname"><a href="mpu9150_8c.html#ab9d8ae04b09bd47f6a25bca5616734d7">getOmegaRef</a></div><div class="ttdeci">float getOmegaRef(float *vec)</div><div class="ttdef"><b>Definition:</b> <a href="mpu9150_8c_source.html#l00493">mpu9150.c:493</a></div></div>
+<div class="ttc" id="_system_tick_timer_8h_html"><div class="ttname"><a href="_system_tick_timer_8h.html">SystemTickTimer.h</a></div></div>
+<div class="ttc" id="type_8h_html"><div class="ttname"><a href="type_8h.html">type.h</a></div></div>
+<div class="ttc" id="type_8h_html_a435d1572bf3f880d55459d9805097f62"><div class="ttname"><a href="type_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a></div><div class="ttdeci">unsigned int uint32_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00029">type.h:29</a></div></div>
+<div class="ttc" id="i2c_8h_html"><div class="ttname"><a href="i2c_8h.html">i2c.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_95ee3d4ed234dd1221919408f66c24e5.html">AICHIP</a></li><li class="navelem"><a class="el" href="mpu9150_8c.html">mpu9150.c</a></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<map id="USB_SetAddress" name="USB_SetAddress">
+<area shape="rect" id="node2" href="$usbcore_8c.html#ab4112b0375b0336fa4c3d873627c1697" title="USB_EndPoint0" alt="" coords="177,5,293,32"/>
+<area shape="rect" id="node3" href="$usbhw_8c.html#a35fe971cbcbfe8813199e869284cb862" title="USB_Init" alt="" coords="199,56,272,83"/>
+<area shape="rect" id="node4" href="$main_8c.html#a2858154e2009b0e6e616f313177762bc" title="init" alt="" coords="341,56,380,83"/>
+<area shape="rect" id="node5" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="428,56,479,83"/>
+</map>

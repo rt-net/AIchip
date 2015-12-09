@@ -1,0 +1,14 @@
+<map id="USB_WriteEP" name="USB_WriteEP">
+<area shape="rect" id="node2" href="$usb_transmission_8c.html#a2d6d7c05d91576af25410bb856740976" title="VCOM_SendData" alt="" coords="175,56,301,83"/>
+<area shape="rect" id="node5" href="$cdcuser_8c.html#a4751ad13996ceeb9438a86340d41f206" title="CDC_BulkIn" alt="" coords="192,107,284,133"/>
+<area shape="rect" id="node7" href="$cdcuser_8c.html#a514c6123d586172d406abff1940a0591" title="CDC_NotificationIn" alt="" coords="173,157,303,184"/>
+<area shape="rect" id="node10" href="$usbcore_8c.html#af77737c9a9cf487c2d21bdb77904d5b4" title="USB_DataInStage" alt="" coords="175,208,301,235"/>
+<area shape="rect" id="node12" href="$usbcore_8c.html#abd896ba7757ca7b9b9ae8a8d5bdabda5" title="USB_StatusInStage" alt="" coords="169,259,307,285"/>
+<area shape="rect" id="node13" href="$usbcore_8c.html#aa84567109d1fe52a9d18d5562040971d" title="USB_ReqSetClrFeature" alt="" coords="159,309,317,336"/>
+<area shape="rect" id="node3" href="$_a_i_c_h_i_p_function_8c.html#a722d97fdabdf6a349b0ad02c82da1d23" title="TIMER32_1_IRQHandler" alt="" coords="365,5,528,32"/>
+<area shape="rect" id="node4" href="$debug_8c.html#a1bd9f450dbe5f0e704bee6a2d945822f" title="myPrintfUSB" alt="" coords="576,107,673,133"/>
+<area shape="rect" id="node6" href="$usbuser_8c.html#a207eec28301f78ada1134d266958e807" title="USB_EndPoint3" alt="" coords="389,107,505,133"/>
+<area shape="rect" id="node8" href="$usb_transmission_8c.html#a4a2bacd9a23fff588cb7f5b6538e7b25" title="VCOM_CheckState" alt="" coords="379,157,515,184"/>
+<area shape="rect" id="node9" href="$usbuser_8c.html#a910d243e4f1701b825b7e9c6e7fa2bed" title="USB_EndPoint1" alt="" coords="389,208,505,235"/>
+<area shape="rect" id="node11" href="$usbcore_8c.html#ab4112b0375b0336fa4c3d873627c1697" title="USB_EndPoint0" alt="" coords="389,259,505,285"/>
+</map>
