@@ -10,9 +10,11 @@ AIチップの回路図です.
 
 ### 概要
 
-processingとはarudinoのようにC言語likeな文法で簡単なプログラミングができる言語です. <https://processing.org/>
-
-グラフィック等の表示が比較的に簡単にできるのでちょっとしたプログラミングに適しています.  AIチップのいくつかのサンプルはprocessingを用いて記述されています.  processingの導入方法等についてはmanualフォルダ内のAI_CHIP_manual.pdfを参照してください.  
+processingとはarudinoのようにC言語likeな文法で簡単なプログラミングができる言語です.   
+<https://processing.org/>   
+グラフィック等の表示が比較的に簡単にできるのでちょっとしたプログラミングに適しています.  
+AIチップのいくつかのサンプルはprocessingを用いて記述されています.  
+processingの導入方法等についてはmanualフォルダ内のAI_CHIP_manual.pdfを参照してください.  
 
 
 ### ファイル内容
@@ -26,10 +28,12 @@ processingとはarudinoのようにC言語likeな文法で簡単なプログラ�
 
 ### 概要
 
-LPCXpressoはAIチップボード上の制御マイコン(lpc1343)の統合開発環境です.  
-<http://www.nxp-lpc.com/lpc_boards/lpcxpresso/>
+LPCXpressoはAIチップボード上の制御マイコン(lpc1343)の統合開発環境です.   
+<http://www.nxp-lpc.com/lpc_boards/lpcxpresso/>   
 出荷時にAIチップには基本的な動作を実現するためのファームウェアが書き込まれています.  
 このファームウェアのプロジェクトファイルが本フォルダに入っています.
+本プロジェクトファイルのソースの関数などについては以下に記述があります.  
+<http://rt-net.github.io/AIchip/>   
 
 
 
@@ -74,6 +78,14 @@ LPCXpressoはAIチップボード上の制御マイコン(lpc1343)の統合開�
 
 ## datasheet  
 
-RN42(Bluetoothモジュール), mpu9150(9軸センサ), lpc1343(マイコン)のデータシートです.  
+以下のデータシートです.
 
+ * RN42(Bluetoothモジュール)
+ * mpu9150(9軸センサ)
+ * lpc1343(マイコン)
+
+## firmware
+
+AIチップ上のマイコンに出荷時点で書き込まれている
+ファームウェアです.
 
