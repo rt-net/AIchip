@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>RT-AICHIP-sample: inc/OTHER/serial.h ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RT-AICHIP-sample
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li><a href="modules.html"><span>モジュール</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>大域各種</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('serial_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<div class="title">serial.h ファイル</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div class="dynheader">
+被依存関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="serial_8h__dep__incl.png" border="0" usemap="#inc_2_o_t_h_e_r_2serial_8hdep" alt=""/></div>
+<map name="inc_2_o_t_h_e_r_2serial_8hdep" id="inc_2_o_t_h_e_r_2serial_8hdep">
+<area shape="rect" id="node2" href="serial_8c.html" title="src/OTHER/serial.c" alt="" coords="5,80,140,107"/>
+<area shape="rect" id="node3" href="cdcuser_8c.html" title="src/USB/cdcuser.c" alt="" coords="164,80,296,107"/>
+</map>
+</div>
+</div>
+<p><a href="serial_8h_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a6d4d3e6db68a3737215755a4a800b128"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a6d4d3e6db68a3737215755a4a800b128">ser_OpenPort</a> (void)</td></tr>
+<tr class="separator:a6d4d3e6db68a3737215755a4a800b128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fd4614e99c4b4e87970429c69b3867d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a1fd4614e99c4b4e87970429c69b3867d">ser_ClosePort</a> (void)</td></tr>
+<tr class="separator:a1fd4614e99c4b4e87970429c69b3867d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af120d75c37bd44edc6eb6c163bb8e91d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#af120d75c37bd44edc6eb6c163bb8e91d">ser_InitPort</a> (unsigned long baudrate, unsigned int databits, unsigned int parity, unsigned int stopbits)</td></tr>
+<tr class="separator:af120d75c37bd44edc6eb6c163bb8e91d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af28f88f5d6724ff343f1cb3ec8d9d2bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#af28f88f5d6724ff343f1cb3ec8d9d2bb">ser_AvailChar</a> (int *availChar)</td></tr>
+<tr class="separator:af28f88f5d6724ff343f1cb3ec8d9d2bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a301526ea152a146e118fa824303a642d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a301526ea152a146e118fa824303a642d">ser_Write</a> (const char *buffer, int *length)</td></tr>
+<tr class="separator:a301526ea152a146e118fa824303a642d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac25fc22a82ed4c79a43af56c73c22f8f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#ac25fc22a82ed4c79a43af56c73c22f8f">ser_Read</a> (char *buffer, const int *length)</td></tr>
+<tr class="separator:ac25fc22a82ed4c79a43af56c73c22f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a622ef81b7c41187c4a56acf8ad01a512"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a622ef81b7c41187c4a56acf8ad01a512">ser_LineState</a> (unsigned short *lineState)</td></tr>
+<tr class="separator:a622ef81b7c41187c4a56acf8ad01a512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">関数詳解</h2>
+<a class="anchor" id="af28f88f5d6724ff343f1cb3ec8d9d2bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ser_AvailChar </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>availChar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="serial_8c_source.html">serial.c</a> の <a class="el" href="serial_8c_source.html#l00200">200</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="serial_8h_af28f88f5d6724ff343f1cb3ec8d9d2bb_icgraph.png" border="0" usemap="#serial_8h_af28f88f5d6724ff343f1cb3ec8d9d2bb_icgraph" alt=""/></div>
+<map name="serial_8h_af28f88f5d6724ff343f1cb3ec8d9d2bb_icgraph" id="serial_8h_af28f88f5d6724ff343f1cb3ec8d9d2bb_icgraph">
+<area shape="rect" id="node2" href="cdcuser_8c.html#a4751ad13996ceeb9438a86340d41f206" title="CDC_BulkIn" alt="" coords="155,5,247,32"/>
+<area shape="rect" id="node3" href="usbuser_8c.html#a207eec28301f78ada1134d266958e807" title="USB_EndPoint3" alt="" coords="295,5,411,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1fd4614e99c4b4e87970429c69b3867d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ser_ClosePort </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="serial_8c_source.html">serial.c</a> の <a class="el" href="serial_8c_source.html#l00067">67</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="serial_8h_a1fd4614e99c4b4e87970429c69b3867d_icgraph.png" border="0" usemap="#serial_8h_a1fd4614e99c4b4e87970429c69b3867d_icgraph" alt=""/></div>
+<map name="serial_8h_a1fd4614e99c4b4e87970429c69b3867d_icgraph" id="serial_8h_a1fd4614e99c4b4e87970429c69b3867d_icgraph">
+<area shape="rect" id="node2" href="cdcuser_8c.html#a00d35ca612863870e7a463d33e812cb0" title="CDC_SetLineCoding" alt="" coords="157,5,297,32"/>
+<area shape="rect" id="node3" href="usbcore_8c.html#ab4112b0375b0336fa4c3d873627c1697" title="USB_EndPoint0" alt="" coords="345,5,461,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af120d75c37bd44edc6eb6c163bb8e91d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ser_InitPort </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramname"><em>baudrate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>databits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>parity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>stopbits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="serial_8c_source.html">serial.c</a> の <a class="el" href="serial_8c_source.html#l00080">80</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="serial_8h_af120d75c37bd44edc6eb6c163bb8e91d_icgraph.png" border="0" usemap="#serial_8h_af120d75c37bd44edc6eb6c163bb8e91d_icgraph" alt=""/></div>
+<map name="serial_8h_af120d75c37bd44edc6eb6c163bb8e91d_icgraph" id="serial_8h_af120d75c37bd44edc6eb6c163bb8e91d_icgraph">
+<area shape="rect" id="node2" href="cdcuser_8c.html#a00d35ca612863870e7a463d33e812cb0" title="CDC_SetLineCoding" alt="" coords="141,5,281,32"/>
+<area shape="rect" id="node3" href="usbcore_8c.html#ab4112b0375b0336fa4c3d873627c1697" title="USB_EndPoint0" alt="" coords="329,5,445,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a622ef81b7c41187c4a56acf8ad01a512"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ser_LineState </td>
+          <td>(</td>
+          <td class="paramtype">unsigned short *&#160;</td>
+          <td class="paramname"><em>lineState</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="serial_8c_source.html">serial.c</a> の <a class="el" href="serial_8c_source.html#l00209">209</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="serial_8h_a622ef81b7c41187c4a56acf8ad01a512_icgraph.png" border="0" usemap="#serial_8h_a622ef81b7c41187c4a56acf8ad01a512_icgraph" alt=""/></div>
+<map name="serial_8h_a622ef81b7c41187c4a56acf8ad01a512_icgraph" id="serial_8h_a622ef81b7c41187c4a56acf8ad01a512_icgraph">
+<area shape="rect" id="node2" href="cdcuser_8c.html#a7ce873af21ad9bad0f156b742d60e7db" title="CDC_GetSerialState" alt="" coords="156,31,297,57"/>
+<area shape="rect" id="node3" href="usb_transmission_8c.html#a4a2bacd9a23fff588cb7f5b6538e7b25" title="VCOM_CheckState" alt="" coords="345,5,481,32"/>
+<area shape="rect" id="node5" href="usbuser_8c.html#a910d243e4f1701b825b7e9c6e7fa2bed" title="USB_EndPoint1" alt="" coords="355,56,471,83"/>
+<area shape="rect" id="node4" href="debug_8c.html#a1bd9f450dbe5f0e704bee6a2d945822f" title="myPrintfUSB" alt="" coords="529,5,627,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d4d3e6db68a3737215755a4a800b128"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ser_OpenPort </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="serial_8c_source.html">serial.c</a> の <a class="el" href="serial_8c_source.html#l00050">50</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="serial_8h_a6d4d3e6db68a3737215755a4a800b128_icgraph.png" border="0" usemap="#serial_8h_a6d4d3e6db68a3737215755a4a800b128_icgraph" alt=""/></div>
+<map name="serial_8h_a6d4d3e6db68a3737215755a4a800b128_icgraph" id="serial_8h_a6d4d3e6db68a3737215755a4a800b128_icgraph">
+<area shape="rect" id="node2" href="cdcuser_8c.html#a00d35ca612863870e7a463d33e812cb0" title="CDC_SetLineCoding" alt="" coords="156,5,296,32"/>
+<area shape="rect" id="node3" href="usbcore_8c.html#ab4112b0375b0336fa4c3d873627c1697" title="USB_EndPoint0" alt="" coords="344,5,460,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac25fc22a82ed4c79a43af56c73c22f8f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ser_Read </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="serial_8c_source.html">serial.c</a> の <a class="el" href="serial_8c_source.html#l00158">158</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="serial_8h_ac25fc22a82ed4c79a43af56c73c22f8f_icgraph.png" border="0" usemap="#serial_8h_ac25fc22a82ed4c79a43af56c73c22f8f_icgraph" alt=""/></div>
+<map name="serial_8h_ac25fc22a82ed4c79a43af56c73c22f8f_icgraph" id="serial_8h_ac25fc22a82ed4c79a43af56c73c22f8f_icgraph">
+<area shape="rect" id="node2" href="cdcuser_8c.html#a4751ad13996ceeb9438a86340d41f206" title="CDC_BulkIn" alt="" coords="131,5,223,32"/>
+<area shape="rect" id="node3" href="usbuser_8c.html#a207eec28301f78ada1134d266958e807" title="USB_EndPoint3" alt="" coords="271,5,387,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a301526ea152a146e118fa824303a642d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ser_Write </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="serial_8c_source.html">serial.c</a> の <a class="el" href="serial_8c_source.html#l00176">176</a> 行目に定義があります。</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="dir_1acade5ddfe3bf44eb92b7f1c40ce8f5.html">OTHER</a></li><li class="navelem"><a class="el" href="serial_8h.html">serial.h</a></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>

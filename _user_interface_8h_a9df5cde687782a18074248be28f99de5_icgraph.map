@@ -1,0 +1,7 @@
+<map id="getStateRightSW" name="getStateRightSW">
+<area shape="rect" id="node2" href="$_user_interface_8c.html#a5eac145a67d809967d2eb6ac4591b4b0" title="TIMER32_0_IRQHandler" alt="" coords="176,5,339,32"/>
+<area shape="rect" id="node3" href="$_user_interface_8c.html#a79d499af646fa4451b1edc01dac956d8" title="debugUI" alt="" coords="223,56,292,83"/>
+<area shape="rect" id="node4" href="$mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="387,56,483,83"/>
+<area shape="rect" id="node5" href="$mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="531,56,621,83"/>
+<area shape="rect" id="node6" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="669,56,720,83"/>
+</map>

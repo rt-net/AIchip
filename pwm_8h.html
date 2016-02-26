@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>RT-AICHIP-sample: inc/PERIPHERAL/pwm.h ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RT-AICHIP-sample
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li><a href="modules.html"><span>モジュール</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>大域各種</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('pwm_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<div class="title">pwm.h ファイル</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div class="dynheader">
+被依存関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="pwm_8h__dep__incl.png" border="0" usemap="#inc_2_p_e_r_i_p_h_e_r_a_l_2pwm_8hdep" alt=""/></div>
+<map name="inc_2_p_e_r_i_p_h_e_r_a_l_2pwm_8hdep" id="inc_2_p_e_r_i_p_h_e_r_a_l_2pwm_8hdep">
+<area shape="rect" id="node2" href="_a_i_c_h_i_p_function_8c.html" title="モーターの回転, 機体データの送信, コマンドの受信 &#160;&#160;10msec毎に割り込み関数で処理を実行 ..." alt="" coords="5,80,199,107"/>
+<area shape="rect" id="node3" href="main_8c.html" title="RT&#45;AICHIPのサンプルプログラム &#160;" alt="" coords="223,80,352,107"/>
+<area shape="rect" id="node4" href="_user_interface_8c.html" title="LED,SW,電源電圧の監視等の機能の実装 &#160;&#160;" alt="" coords="376,80,553,107"/>
+<area shape="rect" id="node5" href="pwm_8c.html" title="src/PERIPHERAL/pwm.c" alt="" coords="578,80,746,107"/>
+</map>
+</div>
+</div>
+<p><a href="pwm_8h_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a43b925353d72c4c819c4e2acaf9e4ccc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm_8h.html#a43b925353d72c4c819c4e2acaf9e4ccc">Init_PWM2</a> (void)</td></tr>
+<tr class="separator:a43b925353d72c4c819c4e2acaf9e4ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f6f654f5f4ab238665b47081af9532c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm_8h.html#a4f6f654f5f4ab238665b47081af9532c">Init_PWM1</a> (void)</td></tr>
+<tr class="separator:a4f6f654f5f4ab238665b47081af9532c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6a7c0d6dfc7cf7ef4337e1041a7669e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm_8h.html#ac6a7c0d6dfc7cf7ef4337e1041a7669e">setDutyPWM1</a> (float duty)</td></tr>
+<tr class="separator:ac6a7c0d6dfc7cf7ef4337e1041a7669e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5fb55bc840ee14f4faace350395ada2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm_8h.html#af5fb55bc840ee14f4faace350395ada2">setDutyPWM2</a> (float duty)</td></tr>
+<tr class="separator:af5fb55bc840ee14f4faace350395ada2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">関数詳解</h2>
+<a class="anchor" id="a4f6f654f5f4ab238665b47081af9532c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Init_PWM1 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="pwm_8c_source.html">pwm.c</a> の <a class="el" href="pwm_8c_source.html#l00015">15</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a class="anchor" id="a43b925353d72c4c819c4e2acaf9e4ccc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Init_PWM2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="pwm_8c_source.html">pwm.c</a> の <a class="el" href="pwm_8c_source.html#l00040">40</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="pwm_8h_a43b925353d72c4c819c4e2acaf9e4ccc_icgraph.png" border="0" usemap="#pwm_8h_a43b925353d72c4c819c4e2acaf9e4ccc_icgraph" alt=""/></div>
+<map name="pwm_8h_a43b925353d72c4c819c4e2acaf9e4ccc_icgraph" id="pwm_8h_a43b925353d72c4c819c4e2acaf9e4ccc_icgraph">
+<area shape="rect" id="node2" href="_a_i_c_h_i_p_function_8c.html#a16a8ac093266a9997a930691fccfc9bd" title="setDutyMotor" alt="" coords="140,107,240,133"/>
+<area shape="rect" id="node3" href="mode___bluetooth_setting_8c.html#a3dcf830b1ad4a49cef522f95b7553c48" title="mode_BluetoothSetting" alt="" coords="288,5,445,32"/>
+<area shape="rect" id="node6" href="mode__control_run_8c.html#a29f463c22bc67d42c62f5bac44fad178" title="mode_controlRun" alt="" coords="305,56,428,83"/>
+<area shape="rect" id="node7" href="mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="319,107,415,133"/>
+<area shape="rect" id="node8" href="mode__duty_max_8c.html#aac72eb218f372e7f1078b4a47c445df0" title="mode_dutyMax" alt="" coords="311,157,422,184"/>
+<area shape="rect" id="node9" href="mode__select_duty_8c.html#a92b499e33422109bcbd3db09aea8561e" title="mode_selectDuty" alt="" coords="305,208,428,235"/>
+<area shape="rect" id="node4" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="493,107,584,133"/>
+<area shape="rect" id="node5" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="632,107,683,133"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac6a7c0d6dfc7cf7ef4337e1041a7669e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setDutyPWM1 </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>duty</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="pwm_8c_source.html">pwm.c</a> の <a class="el" href="pwm_8c_source.html#l00063">63</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a class="anchor" id="af5fb55bc840ee14f4faace350395ada2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setDutyPWM2 </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>duty</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="pwm_8c_source.html">pwm.c</a> の <a class="el" href="pwm_8c_source.html#l00072">72</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="pwm_8h_af5fb55bc840ee14f4faace350395ada2_icgraph.png" border="0" usemap="#pwm_8h_af5fb55bc840ee14f4faace350395ada2_icgraph" alt=""/></div>
+<map name="pwm_8h_af5fb55bc840ee14f4faace350395ada2_icgraph" id="pwm_8h_af5fb55bc840ee14f4faace350395ada2_icgraph">
+<area shape="rect" id="node2" href="_a_i_c_h_i_p_function_8c.html#a16a8ac093266a9997a930691fccfc9bd" title="setDutyMotor" alt="" coords="160,107,260,133"/>
+<area shape="rect" id="node3" href="mode___bluetooth_setting_8c.html#a3dcf830b1ad4a49cef522f95b7553c48" title="mode_BluetoothSetting" alt="" coords="308,5,465,32"/>
+<area shape="rect" id="node6" href="mode__control_run_8c.html#a29f463c22bc67d42c62f5bac44fad178" title="mode_controlRun" alt="" coords="325,56,448,83"/>
+<area shape="rect" id="node7" href="mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="339,107,435,133"/>
+<area shape="rect" id="node8" href="mode__duty_max_8c.html#aac72eb218f372e7f1078b4a47c445df0" title="mode_dutyMax" alt="" coords="331,157,442,184"/>
+<area shape="rect" id="node9" href="mode__select_duty_8c.html#a92b499e33422109bcbd3db09aea8561e" title="mode_selectDuty" alt="" coords="325,208,448,235"/>
+<area shape="rect" id="node4" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="513,107,604,133"/>
+<area shape="rect" id="node5" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="652,107,703,133"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="dir_465fd8e6a32cf7967e860f7de28a8bae.html">PERIPHERAL</a></li><li class="navelem"><a class="el" href="pwm_8h.html">pwm.h</a></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>

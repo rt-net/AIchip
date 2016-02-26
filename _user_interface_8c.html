@@ -1,0 +1,738 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>RT-AICHIP-sample: src/AICHIP/UserInterface.c ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RT-AICHIP-sample
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li><a href="modules.html"><span>モジュール</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>大域各種</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_user_interface_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle">
+<div class="title">UserInterface.c ファイル</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>LED,SW,電源電圧の監視等の機能の実装 <br />
+  
+<a href="#details">[詳解]</a></p>
+<div class="textblock"><code>#include &quot;LPC13xx.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="core__cm3_8h_source.html">core_cm3.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="timer_8h_source.html">timer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="type_8h_source.html">type.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pwm_8h_source.html">pwm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_user_interface_8h_source.html">UserInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ad_8h_source.html">ad.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+UserInterface.c の依存先関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c__incl.png" border="0" usemap="#src_2_a_i_c_h_i_p_2_user_interface_8c" alt=""/></div>
+<map name="src_2_a_i_c_h_i_p_2_user_interface_8c" id="src_2_a_i_c_h_i_p_2_user_interface_8c">
+<area shape="rect" id="node3" href="core__cm3_8h.html" title="CMSIS Cortex&#45;M3 Core Peripheral Access Layer Header File. " alt="" coords="117,80,207,107"/>
+<area shape="rect" id="node5" href="timer_8h.html" title="timer.h" alt="" coords="232,80,295,107"/>
+<area shape="rect" id="node6" href="type_8h.html" title="type.h" alt="" coords="319,80,378,107"/>
+<area shape="rect" id="node7" href="pwm_8h.html" title="pwm.h" alt="" coords="403,80,463,107"/>
+<area shape="rect" id="node8" href="_user_interface_8h.html" title="UserInterface.h" alt="" coords="487,80,597,107"/>
+<area shape="rect" id="node9" href="ad_8h.html" title="ad.h" alt="" coords="621,80,668,107"/>
+</map>
+</div>
+</div>
+<p><a href="_user_interface_8c_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a0e6a38adb3139816ca5ead4dfc842caa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#a0e6a38adb3139816ca5ead4dfc842caa">initUI</a> (void)</td></tr>
+<tr class="separator:a0e6a38adb3139816ca5ead4dfc842caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee30afc23e3ad95de08baac8cbc9138e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#aee30afc23e3ad95de08baac8cbc9138e">getStateLeftSW</a> (void)</td></tr>
+<tr class="separator:aee30afc23e3ad95de08baac8cbc9138e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9df5cde687782a18074248be28f99de5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#a9df5cde687782a18074248be28f99de5">getStateRightSW</a> (void)</td></tr>
+<tr class="separator:a9df5cde687782a18074248be28f99de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c483926268bba9b2588a89c5c147d42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#a8c483926268bba9b2588a89c5c147d42">getLeftSWcount</a> (void)</td></tr>
+<tr class="separator:a8c483926268bba9b2588a89c5c147d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afddcda2cc345e2479db8d5eea0a1790e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#afddcda2cc345e2479db8d5eea0a1790e">getRightSWcount</a> (void)</td></tr>
+<tr class="separator:afddcda2cc345e2479db8d5eea0a1790e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a5eb00b14b07e1e0071e6cbebb202fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="type_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#a8a5eb00b14b07e1e0071e6cbebb202fe">getElapsedTime</a> (void)</td></tr>
+<tr class="separator:a8a5eb00b14b07e1e0071e6cbebb202fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb849b234132a2e710362c5222a38b60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#acb849b234132a2e710362c5222a38b60">resetElapsedTime</a> (void)</td></tr>
+<tr class="separator:acb849b234132a2e710362c5222a38b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1a80794bf401c28dcf6880a23008c58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#af1a80794bf401c28dcf6880a23008c58">turnRedLED</a> (<a class="el" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> state)</td></tr>
+<tr class="separator:af1a80794bf401c28dcf6880a23008c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ffa5149729f4001be7eaf84bc236470"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#a2ffa5149729f4001be7eaf84bc236470">turnGreenLED</a> (<a class="el" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> state)</td></tr>
+<tr class="separator:a2ffa5149729f4001be7eaf84bc236470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5632aaf4c593feec86db5dd45f04b9dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#a5632aaf4c593feec86db5dd45f04b9dd">flashGreenLED</a> (<a class="el" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a> on_count, <a class="el" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a> off_count)</td></tr>
+<tr class="separator:a5632aaf4c593feec86db5dd45f04b9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15a5451029098942e8c93adeaa1b42ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#a15a5451029098942e8c93adeaa1b42ff">flashRedLED</a> (<a class="el" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a> on_count, <a class="el" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a> off_count)</td></tr>
+<tr class="separator:a15a5451029098942e8c93adeaa1b42ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad06e87f0860272450b695eedc189fc62"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#ad06e87f0860272450b695eedc189fc62">getLipoVoltage</a> (void)</td></tr>
+<tr class="separator:ad06e87f0860272450b695eedc189fc62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88a6e3563b17534c3e5b16a9b5d2acb4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#a88a6e3563b17534c3e5b16a9b5d2acb4">getMotorVoltage</a> (void)</td></tr>
+<tr class="separator:a88a6e3563b17534c3e5b16a9b5d2acb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eac145a67d809967d2eb6ac4591b4b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#a5eac145a67d809967d2eb6ac4591b4b0">TIMER32_0_IRQHandler</a> (void)</td></tr>
+<tr class="separator:a5eac145a67d809967d2eb6ac4591b4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79d499af646fa4451b1edc01dac956d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_user_interface_8c.html#a79d499af646fa4451b1edc01dac956d8">debugUI</a> (void)</td></tr>
+<tr class="separator:a79d499af646fa4451b1edc01dac956d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>LED,SW,電源電圧の監視等の機能の実装 <br />
+ </p>
+<dl class="section author"><dt>著者</dt><dd>RTCorp. Ryota Takahashi </dd></dl>
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> に定義があります。</p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a class="anchor" id="a79d499af646fa4451b1edc01dac956d8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void debugUI </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00319">319</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_a79d499af646fa4451b1edc01dac956d8_cgraph.png" border="0" usemap="#_user_interface_8c_a79d499af646fa4451b1edc01dac956d8_cgraph" alt=""/></div>
+<map name="_user_interface_8c_a79d499af646fa4451b1edc01dac956d8_cgraph" id="_user_interface_8c_a79d499af646fa4451b1edc01dac956d8_cgraph">
+<area shape="rect" id="node2" href="debug_8h.html#acb52286c12863b103cc835c3d8310773" title="myPrintfUART" alt="" coords="133,5,237,32"/>
+<area shape="rect" id="node4" href="_user_interface_8c.html#a9df5cde687782a18074248be28f99de5" title="getStateRightSW" alt="" coords="123,56,246,83"/>
+<area shape="rect" id="node5" href="_user_interface_8c.html#afddcda2cc345e2479db8d5eea0a1790e" title="getRightSWcount" alt="" coords="123,107,247,133"/>
+<area shape="rect" id="node6" href="_user_interface_8c.html#aee30afc23e3ad95de08baac8cbc9138e" title="getStateLeftSW" alt="" coords="127,157,242,184"/>
+<area shape="rect" id="node7" href="_user_interface_8c.html#a8c483926268bba9b2588a89c5c147d42" title="getLeftSWcount" alt="" coords="127,208,242,235"/>
+<area shape="rect" id="node8" href="_user_interface_8c.html#a8a5eb00b14b07e1e0071e6cbebb202fe" title="getElapsedTime" alt="" coords="127,259,242,285"/>
+<area shape="rect" id="node9" href="_user_interface_8c.html#a88a6e3563b17534c3e5b16a9b5d2acb4" title="getMotorVoltage" alt="" coords="126,309,243,336"/>
+<area shape="rect" id="node10" href="_user_interface_8c.html#ad06e87f0860272450b695eedc189fc62" title="getLipoVoltage" alt="" coords="131,360,239,387"/>
+<area shape="rect" id="node3" href="uart_8h.html#ae8554b16d7597ea89092ecf98071508e" title="UARTSend" alt="" coords="295,5,381,32"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_a79d499af646fa4451b1edc01dac956d8_icgraph.png" border="0" usemap="#_user_interface_8c_a79d499af646fa4451b1edc01dac956d8_icgraph" alt=""/></div>
+<map name="_user_interface_8c_a79d499af646fa4451b1edc01dac956d8_icgraph" id="_user_interface_8c_a79d499af646fa4451b1edc01dac956d8_icgraph">
+<area shape="rect" id="node2" href="mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="123,5,219,32"/>
+<area shape="rect" id="node3" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="267,5,357,32"/>
+<area shape="rect" id="node4" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="405,5,456,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5632aaf4c593feec86db5dd45f04b9dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void flashGreenLED </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>&#160;</td>
+          <td class="paramname"><em>on_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>&#160;</td>
+          <td class="paramname"><em>off_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00216">216</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_a5632aaf4c593feec86db5dd45f04b9dd_icgraph.png" border="0" usemap="#_user_interface_8c_a5632aaf4c593feec86db5dd45f04b9dd_icgraph" alt=""/></div>
+<map name="_user_interface_8c_a5632aaf4c593feec86db5dd45f04b9dd_icgraph" id="_user_interface_8c_a5632aaf4c593feec86db5dd45f04b9dd_icgraph">
+<area shape="rect" id="node2" href="mode__select_duty_8c.html#a92b499e33422109bcbd3db09aea8561e" title="mode_selectDuty" alt="" coords="163,5,285,32"/>
+<area shape="rect" id="node3" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="333,31,424,57"/>
+<area shape="rect" id="node4" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="472,31,523,57"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a15a5451029098942e8c93adeaa1b42ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void flashRedLED </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>&#160;</td>
+          <td class="paramname"><em>on_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>&#160;</td>
+          <td class="paramname"><em>off_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00237">237</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_a15a5451029098942e8c93adeaa1b42ff_icgraph.png" border="0" usemap="#_user_interface_8c_a15a5451029098942e8c93adeaa1b42ff_icgraph" alt=""/></div>
+<map name="_user_interface_8c_a15a5451029098942e8c93adeaa1b42ff_icgraph" id="_user_interface_8c_a15a5451029098942e8c93adeaa1b42ff_icgraph">
+<area shape="rect" id="node2" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="151,5,201,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8a5eb00b14b07e1e0071e6cbebb202fe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="type_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getElapsedTime </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00122">122</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_a8a5eb00b14b07e1e0071e6cbebb202fe_icgraph.png" border="0" usemap="#_user_interface_8c_a8a5eb00b14b07e1e0071e6cbebb202fe_icgraph" alt=""/></div>
+<map name="_user_interface_8c_a8a5eb00b14b07e1e0071e6cbebb202fe_icgraph" id="_user_interface_8c_a8a5eb00b14b07e1e0071e6cbebb202fe_icgraph">
+<area shape="rect" id="node2" href="_a_i_c_h_i_p_function_8c.html#a722d97fdabdf6a349b0ad02c82da1d23" title="TIMER32_1_IRQHandler" alt="" coords="168,5,331,32"/>
+<area shape="rect" id="node3" href="_user_interface_8c.html#a79d499af646fa4451b1edc01dac956d8" title="debugUI" alt="" coords="215,56,284,83"/>
+<area shape="rect" id="node4" href="mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="379,56,475,83"/>
+<area shape="rect" id="node5" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="523,56,613,83"/>
+<area shape="rect" id="node6" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="661,56,712,83"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c483926268bba9b2588a89c5c147d42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a> getLeftSWcount </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00098">98</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_a8c483926268bba9b2588a89c5c147d42_icgraph.png" border="0" usemap="#_user_interface_8c_a8c483926268bba9b2588a89c5c147d42_icgraph" alt=""/></div>
+<map name="_user_interface_8c_a8c483926268bba9b2588a89c5c147d42_icgraph" id="_user_interface_8c_a8c483926268bba9b2588a89c5c147d42_icgraph">
+<area shape="rect" id="node2" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="683,105,733,131"/>
+<area shape="rect" id="node3" href="_user_interface_8c.html#a79d499af646fa4451b1edc01dac956d8" title="debugUI" alt="" coords="195,54,264,81"/>
+<area shape="rect" id="node4" href="mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="369,105,465,131"/>
+<area shape="rect" id="node5" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="544,206,635,233"/>
+<area shape="rect" id="node6" href="mode___bluetooth_setting_8c.html#a3dcf830b1ad4a49cef522f95b7553c48" title="mode_BluetoothSetting" alt="" coords="339,206,496,233"/>
+<area shape="rect" id="node7" href="mode__control_run_8c.html#a29f463c22bc67d42c62f5bac44fad178" title="mode_controlRun" alt="" coords="356,257,479,283"/>
+<area shape="rect" id="node8" href="mode__duty_max_8c.html#aac72eb218f372e7f1078b4a47c445df0" title="mode_dutyMax" alt="" coords="174,307,285,334"/>
+<area shape="rect" id="node9" href="mode__select_duty_8c.html#a92b499e33422109bcbd3db09aea8561e" title="mode_selectDuty" alt="" coords="168,358,291,385"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad06e87f0860272450b695eedc189fc62"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float getLipoVoltage </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00250">250</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_ad06e87f0860272450b695eedc189fc62_icgraph.png" border="0" usemap="#_user_interface_8c_ad06e87f0860272450b695eedc189fc62_icgraph" alt=""/></div>
+<map name="_user_interface_8c_ad06e87f0860272450b695eedc189fc62_icgraph" id="_user_interface_8c_ad06e87f0860272450b695eedc189fc62_icgraph">
+<area shape="rect" id="node2" href="_a_i_c_h_i_p_function_8c.html#a722d97fdabdf6a349b0ad02c82da1d23" title="TIMER32_1_IRQHandler" alt="" coords="161,5,324,32"/>
+<area shape="rect" id="node3" href="_user_interface_8c.html#a79d499af646fa4451b1edc01dac956d8" title="debugUI" alt="" coords="208,56,277,83"/>
+<area shape="rect" id="node4" href="mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="372,56,468,83"/>
+<area shape="rect" id="node5" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="516,56,607,83"/>
+<area shape="rect" id="node6" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="655,56,705,83"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a88a6e3563b17534c3e5b16a9b5d2acb4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float getMotorVoltage </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00261">261</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_a88a6e3563b17534c3e5b16a9b5d2acb4_icgraph.png" border="0" usemap="#_user_interface_8c_a88a6e3563b17534c3e5b16a9b5d2acb4_icgraph" alt=""/></div>
+<map name="_user_interface_8c_a88a6e3563b17534c3e5b16a9b5d2acb4_icgraph" id="_user_interface_8c_a88a6e3563b17534c3e5b16a9b5d2acb4_icgraph">
+<area shape="rect" id="node2" href="_a_i_c_h_i_p_function_8c.html#a722d97fdabdf6a349b0ad02c82da1d23" title="TIMER32_1_IRQHandler" alt="" coords="171,5,333,32"/>
+<area shape="rect" id="node3" href="_user_interface_8c.html#a79d499af646fa4451b1edc01dac956d8" title="debugUI" alt="" coords="217,56,287,83"/>
+<area shape="rect" id="node4" href="mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="381,56,477,83"/>
+<area shape="rect" id="node5" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="525,56,616,83"/>
+<area shape="rect" id="node6" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="664,56,715,83"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afddcda2cc345e2479db8d5eea0a1790e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="type_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a> getRightSWcount </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00111">111</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_afddcda2cc345e2479db8d5eea0a1790e_icgraph.png" border="0" usemap="#_user_interface_8c_afddcda2cc345e2479db8d5eea0a1790e_icgraph" alt=""/></div>
+<map name="_user_interface_8c_afddcda2cc345e2479db8d5eea0a1790e_icgraph" id="_user_interface_8c_afddcda2cc345e2479db8d5eea0a1790e_icgraph">
+<area shape="rect" id="node2" href="_user_interface_8c.html#a79d499af646fa4451b1edc01dac956d8" title="debugUI" alt="" coords="204,5,273,32"/>
+<area shape="rect" id="node4" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="519,107,609,133"/>
+<area shape="rect" id="node6" href="mode__control_run_8c.html#a29f463c22bc67d42c62f5bac44fad178" title="mode_controlRun" alt="" coords="348,107,471,133"/>
+<area shape="rect" id="node7" href="mode__duty_max_8c.html#aac72eb218f372e7f1078b4a47c445df0" title="mode_dutyMax" alt="" coords="354,157,465,184"/>
+<area shape="rect" id="node8" href="mode__select_duty_8c.html#a92b499e33422109bcbd3db09aea8561e" title="mode_selectDuty" alt="" coords="177,208,300,235"/>
+<area shape="rect" id="node3" href="mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="361,5,457,32"/>
+<area shape="rect" id="node5" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="657,107,708,133"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aee30afc23e3ad95de08baac8cbc9138e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> getStateLeftSW </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00069">69</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_aee30afc23e3ad95de08baac8cbc9138e_icgraph.png" border="0" usemap="#_user_interface_8c_aee30afc23e3ad95de08baac8cbc9138e_icgraph" alt=""/></div>
+<map name="_user_interface_8c_aee30afc23e3ad95de08baac8cbc9138e_icgraph" id="_user_interface_8c_aee30afc23e3ad95de08baac8cbc9138e_icgraph">
+<area shape="rect" id="node2" href="_user_interface_8c.html#a5eac145a67d809967d2eb6ac4591b4b0" title="TIMER32_0_IRQHandler" alt="" coords="168,5,331,32"/>
+<area shape="rect" id="node3" href="_user_interface_8c.html#a79d499af646fa4451b1edc01dac956d8" title="debugUI" alt="" coords="215,56,284,83"/>
+<area shape="rect" id="node4" href="mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="379,56,475,83"/>
+<area shape="rect" id="node5" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="523,56,613,83"/>
+<area shape="rect" id="node6" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="661,56,712,83"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9df5cde687782a18074248be28f99de5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> getStateRightSW </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00083">83</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_a9df5cde687782a18074248be28f99de5_icgraph.png" border="0" usemap="#_user_interface_8c_a9df5cde687782a18074248be28f99de5_icgraph" alt=""/></div>
+<map name="_user_interface_8c_a9df5cde687782a18074248be28f99de5_icgraph" id="_user_interface_8c_a9df5cde687782a18074248be28f99de5_icgraph">
+<area shape="rect" id="node2" href="_user_interface_8c.html#a5eac145a67d809967d2eb6ac4591b4b0" title="TIMER32_0_IRQHandler" alt="" coords="176,5,339,32"/>
+<area shape="rect" id="node3" href="_user_interface_8c.html#a79d499af646fa4451b1edc01dac956d8" title="debugUI" alt="" coords="223,56,292,83"/>
+<area shape="rect" id="node4" href="mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="387,56,483,83"/>
+<area shape="rect" id="node5" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="531,56,621,83"/>
+<area shape="rect" id="node6" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="669,56,720,83"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e6a38adb3139816ca5ead4dfc842caa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initUI </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LEDの点滅, AD変換でのバッテリーの電圧取得, スイッチの押下状態の監視<br />
+ 機能の初期化 <br />
+ この関数は各ペリフェラルの初期化後に呼ぶこと <br />
+</p>
+<p>この関数を呼ぶと <br />
+ </p><ul>
+<li>
+<a class="el" href="_user_interface_8c.html#a8c483926268bba9b2588a89c5c147d42">getLeftSWcount()</a> </li>
+<li>
+<a class="el" href="_user_interface_8c.html#afddcda2cc345e2479db8d5eea0a1790e">getRightSWcount()</a>  </li>
+<li>
+<a class="el" href="_user_interface_8c.html#a8a5eb00b14b07e1e0071e6cbebb202fe">getElapsedTime()</a>  </li>
+<li>
+flashrRedLED()  </li>
+<li>
+<a class="el" href="_user_interface_8c.html#a5632aaf4c593feec86db5dd45f04b9dd">flashGreenLED()</a> </li>
+<li>
+<a class="el" href="_user_interface_8c.html#ad06e87f0860272450b695eedc189fc62">getLipoVoltage()</a> </li>
+<li>
+<a class="el" href="_user_interface_8c.html#a88a6e3563b17534c3e5b16a9b5d2acb4">getMotorVoltage()</a> </li>
+</ul>
+<p>が有効となる.</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>void </dd></dl>
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00058">58</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_a0e6a38adb3139816ca5ead4dfc842caa_cgraph.png" border="0" usemap="#_user_interface_8c_a0e6a38adb3139816ca5ead4dfc842caa_cgraph" alt=""/></div>
+<map name="_user_interface_8c_a0e6a38adb3139816ca5ead4dfc842caa_cgraph" id="_user_interface_8c_a0e6a38adb3139816ca5ead4dfc842caa_cgraph">
+<area shape="rect" id="node2" href="timer_8h.html#aa4de0ba8837a863b85d9cc26491d3a48" title="startTimer32_0" alt="" coords="104,5,212,32"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_a0e6a38adb3139816ca5ead4dfc842caa_icgraph.png" border="0" usemap="#_user_interface_8c_a0e6a38adb3139816ca5ead4dfc842caa_icgraph" alt=""/></div>
+<map name="_user_interface_8c_a0e6a38adb3139816ca5ead4dfc842caa_icgraph" id="_user_interface_8c_a0e6a38adb3139816ca5ead4dfc842caa_icgraph">
+<area shape="rect" id="node2" href="main_8c.html#a2858154e2009b0e6e616f313177762bc" title="init" alt="" coords="104,5,143,32"/>
+<area shape="rect" id="node3" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="191,5,241,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="acb849b234132a2e710362c5222a38b60"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void resetElapsedTime </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00132">132</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_acb849b234132a2e710362c5222a38b60_icgraph.png" border="0" usemap="#_user_interface_8c_acb849b234132a2e710362c5222a38b60_icgraph" alt=""/></div>
+<map name="_user_interface_8c_acb849b234132a2e710362c5222a38b60_icgraph" id="_user_interface_8c_acb849b234132a2e710362c5222a38b60_icgraph">
+<area shape="rect" id="node2" href="mode__control_run_8c.html#a29f463c22bc67d42c62f5bac44fad178" title="mode_controlRun" alt="" coords="180,5,303,32"/>
+<area shape="rect" id="node3" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="351,5,441,32"/>
+<area shape="rect" id="node4" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="489,5,540,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5eac145a67d809967d2eb6ac4591b4b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TIMER32_0_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00273">273</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_a5eac145a67d809967d2eb6ac4591b4b0_cgraph.png" border="0" usemap="#_user_interface_8c_a5eac145a67d809967d2eb6ac4591b4b0_cgraph" alt=""/></div>
+<map name="_user_interface_8c_a5eac145a67d809967d2eb6ac4591b4b0_cgraph" id="_user_interface_8c_a5eac145a67d809967d2eb6ac4591b4b0_cgraph">
+<area shape="rect" id="node2" href="_user_interface_8c.html#aee30afc23e3ad95de08baac8cbc9138e" title="getStateLeftSW" alt="" coords="220,5,335,32"/>
+<area shape="rect" id="node3" href="_user_interface_8c.html#a9df5cde687782a18074248be28f99de5" title="getStateRightSW" alt="" coords="216,56,339,83"/>
+<area shape="rect" id="node4" href="ad_8h.html#a99319e2aae81c8d3fa9907c643519f76" title="storeAD2Array" alt="" coords="224,107,331,133"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ffa5149729f4001be7eaf84bc236470"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void turnGreenLED </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00195">195</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_a2ffa5149729f4001be7eaf84bc236470_icgraph.png" border="0" usemap="#_user_interface_8c_a2ffa5149729f4001be7eaf84bc236470_icgraph" alt=""/></div>
+<map name="_user_interface_8c_a2ffa5149729f4001be7eaf84bc236470_icgraph" id="_user_interface_8c_a2ffa5149729f4001be7eaf84bc236470_icgraph">
+<area shape="rect" id="node2" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="501,41,552,68"/>
+<area shape="rect" id="node3" href="main_8c.html#a2858154e2009b0e6e616f313177762bc" title="init" alt="" coords="389,41,427,68"/>
+<area shape="rect" id="node4" href="mode___bluetooth_setting_8c.html#a3dcf830b1ad4a49cef522f95b7553c48" title="mode_BluetoothSetting" alt="" coords="157,92,315,119"/>
+<area shape="rect" id="node5" href="mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="363,193,453,220"/>
+<area shape="rect" id="node6" href="mode__control_run_8c.html#a29f463c22bc67d42c62f5bac44fad178" title="mode_controlRun" alt="" coords="175,193,297,220"/>
+<area shape="rect" id="node7" href="mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="188,244,284,271"/>
+<area shape="rect" id="node8" href="mode__duty_max_8c.html#aac72eb218f372e7f1078b4a47c445df0" title="mode_dutyMax" alt="" coords="181,295,291,321"/>
+<area shape="rect" id="node9" href="mode__select_duty_8c.html#a92b499e33422109bcbd3db09aea8561e" title="mode_selectDuty" alt="" coords="175,345,297,372"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af1a80794bf401c28dcf6880a23008c58"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void turnRedLED </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="type_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p> <a class="el" href="_user_interface_8c_source.html">UserInterface.c</a> の <a class="el" href="_user_interface_8c_source.html#l00181">181</a> 行目に定義があります。</p>
+
+<p><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="_user_interface_8c_af1a80794bf401c28dcf6880a23008c58_icgraph.png" border="0" usemap="#_user_interface_8c_af1a80794bf401c28dcf6880a23008c58_icgraph" alt=""/></div>
+<map name="_user_interface_8c_af1a80794bf401c28dcf6880a23008c58_icgraph" id="_user_interface_8c_af1a80794bf401c28dcf6880a23008c58_icgraph">
+<area shape="rect" id="node2" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="232,5,283,32"/>
+<area shape="rect" id="node3" href="main_8c.html#a2858154e2009b0e6e616f313177762bc" title="init" alt="" coords="145,31,184,57"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_95ee3d4ed234dd1221919408f66c24e5.html">AICHIP</a></li><li class="navelem"><a class="el" href="_user_interface_8c.html">UserInterface.c</a></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>
