@@ -1,4 +1,0 @@
-<map id="setDutyMotor" name="setDutyMotor">
-<area shape="rect" id="node2" href="$pwm_8h.html#a43b925353d72c4c819c4e2acaf9e4ccc" title="Init_PWM2" alt="" coords="163,5,250,32"/>
-<area shape="rect" id="node3" href="$pwm_8h.html#af5fb55bc840ee14f4faace350395ada2" title="setDutyPWM2" alt="" coords="153,56,260,83"/>
-</map>

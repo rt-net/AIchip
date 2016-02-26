@@ -1,5 +1,0 @@
-<map id="TIMER32_0_IRQHandler" name="TIMER32_0_IRQHandler">
-<area shape="rect" id="node2" href="$_user_interface_8c.html#aee30afc23e3ad95de08baac8cbc9138e" title="getStateLeftSW" alt="" coords="220,5,335,32"/>
-<area shape="rect" id="node3" href="$_user_interface_8c.html#a9df5cde687782a18074248be28f99de5" title="getStateRightSW" alt="" coords="216,56,339,83"/>
-<area shape="rect" id="node4" href="$ad_8h.html#a99319e2aae81c8d3fa9907c643519f76" title="storeAD2Array" alt="" coords="224,107,331,133"/>
-</map>

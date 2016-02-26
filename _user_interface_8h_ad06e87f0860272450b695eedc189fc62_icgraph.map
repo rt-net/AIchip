@@ -1,7 +1,0 @@
-<map id="getLipoVoltage" name="getLipoVoltage">
-<area shape="rect" id="node2" href="$_a_i_c_h_i_p_function_8c.html#a722d97fdabdf6a349b0ad02c82da1d23" title="TIMER32_1_IRQHandler" alt="" coords="161,5,324,32"/>
-<area shape="rect" id="node3" href="$_user_interface_8c.html#a79d499af646fa4451b1edc01dac956d8" title="debugUI" alt="" coords="208,56,277,83"/>
-<area shape="rect" id="node4" href="$mode__debug_8c.html#ac22e22d84393eaec5e34c448eb663299" title="mode_debug" alt="" coords="372,56,468,83"/>
-<area shape="rect" id="node5" href="$mode_select_8c.html#a002b78ca8b6ce5ef312b9412e2d8602a" title="modeSelect" alt="" coords="516,56,607,83"/>
-<area shape="rect" id="node6" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="655,56,705,83"/>
-</map>
