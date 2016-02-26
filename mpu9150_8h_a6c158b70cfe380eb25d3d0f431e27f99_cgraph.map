@@ -1,8 +1,0 @@
-<map id="initOmegaRef" name="initOmegaRef">
-<area shape="rect" id="node2" href="$mpu9150_8c.html#ac9791105abea50829a894b6ea6c7a2b5" title="getDataFromMPU6050" alt="" coords="153,31,308,57"/>
-<area shape="rect" id="node6" href="$_system_tick_timer_8h.html#a4c0b76146789e1b5c90418596dd38895" title="wait1usec" alt="" coords="191,81,271,108"/>
-<area shape="rect" id="node7" href="$tiny_math_function_8h.html#aa9043655ce2582b275428e9230738a37" title="quickSort" alt="" coords="192,132,269,159"/>
-<area shape="rect" id="node3" href="$i2c_8h.html#a0036f04c55d6d2118405ca42632bdbd4" title="I2CEngine" alt="" coords="356,31,437,57"/>
-<area shape="rect" id="node4" href="$i2c_8c.html#a7c87427cfa767315491db0a0c005ec59" title="I2CStart" alt="" coords="485,5,555,32"/>
-<area shape="rect" id="node5" href="$i2c_8c.html#a7b1d12f3a83330eda885db24a701e1b5" title="I2CStop" alt="" coords="486,56,554,83"/>
-</map>

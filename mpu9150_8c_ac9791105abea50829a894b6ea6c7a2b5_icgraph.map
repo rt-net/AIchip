@@ -1,6 +1,0 @@
-<map id="getDataFromMPU6050" name="getDataFromMPU6050">
-<area shape="rect" id="node2" href="$_a_i_c_h_i_p_function_8c.html#a722d97fdabdf6a349b0ad02c82da1d23" title="TIMER32_1_IRQHandler" alt="" coords="208,5,371,32"/>
-<area shape="rect" id="node3" href="$mpu9150_8c.html#a01202d1c9ed8b04ddfd493d8e41e6379" title="initOmegaRef" alt="" coords="239,56,339,83"/>
-<area shape="rect" id="node4" href="$main_8c.html#a2858154e2009b0e6e616f313177762bc" title="init" alt="" coords="419,56,457,83"/>
-<area shape="rect" id="node5" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="505,56,556,83"/>
-</map>
