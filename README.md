@@ -22,7 +22,7 @@ processingの導入方法等についてはmanualフォルダ内のAI_CHIP_manua
  * sample controller　Bluetooth経由でPCからAIチップの速度やLEDの点灯をコントロールするサンプル      
  * sample logger    　Bluetooth経由でPCからAIチップのデータをリアルタイムでグラフに表示するサンプル
  * sample App       　Bluetooth経由でPCからAIチップを動かす最小限のサンプル(矢印キーでモーターの速度変更)
-
+ * sample recieve     Bluetooth経由でAIチップからデータを受信する際の最低限のサンプル
 
 ## LPCXpresso  
 
